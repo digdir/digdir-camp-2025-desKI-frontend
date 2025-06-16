@@ -1,19 +1,6 @@
 # desKI-frontend
 Et enkelt brukergrensesnittet til desKI, en chatbot for Service desk.
-
-## Getting Started
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the development server:
-
-```bash
-npm run dev
-```
+Bygget med React, TypeScript og Vite.
 
 ## 🐳 Using Docker
 To run and build the app:
@@ -33,6 +20,16 @@ docker compose up
 ```
 
 This starts the frontend on http://localhost:3000
+
+## 🧪 Local Development (optional)
+
+If you want to run the frontend outside Docker:
+
+```bash
+npm install
+npm run dev
+```
+The app will start at http://localhost:5173
 
 
 ## React + TypeScript + Vite

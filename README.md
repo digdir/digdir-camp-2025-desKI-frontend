@@ -15,6 +15,25 @@ Run the development server:
 npm run dev
 ```
 
+## 🐳 Using Docker
+To run and build the app:
+```bash
+docker compose up --build
+```
+
+To just build the app:
+
+```bash
+docker compose build
+```
+To just run the app:
+
+```bash
+docker compose up
+```
+
+This starts the frontend on http://localhost:3000
+
 
 ## React + TypeScript + Vite
 

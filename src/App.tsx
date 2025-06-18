@@ -1,33 +1,84 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
 
+import { Textarea, Label, Divider, Paragraph, Button } from '@digdir/designsystemet-react';
+import logo from './assets/logo.png';
+
+function ChatUI() {
+  const [value, setValue] = useState('');
+  const [messages, setMessages] = useState<{ sender: 'user' | 'bot'; text: string }[]>([]);
+  const [loading, setLoading] = useState(false);
+
+
+  const handleSubmit = async () => {
+    if (!value.trim()) return;
+
+    setMessages((prev) => [...prev, { sender: 'user', text: value }]);
+    setLoading(true);
+    // Simulate bot response after delay
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { sender: 'bot', text: 'Dette er et simulert svar fra desKI 🤖' },
+      ]);
+      setLoading(false);
+    }, 700);
+    // TODO: 
+    // Erstatt dette med eit faktisk API-kall når du er klar
+    // Det må naturlegvis tilpassast til ditt API-endepunkt og datamodell.
+    // Det er også laga enkel error-håndtering for å fange opp feil ved innsending.
+/* 
+    try {
+      const res = await fetch('https://ollama.sandkasse.ai/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: "llama3.3",
+          prompt: value
+        }),
+      });
+
+      setValue('');
+      const data = await res.json();
+      setMessages(m => [...m, { sender: 'bot', text: data.response || JSON.stringify(data) }]);
+    } catch (err) {
+      setMessages(m => [...m, { sender: 'bot', text: 'Feil: klarte ikke kontakte API.' }]);
+      console.log('Error:', err);
+    } finally {
+      setLoading(false);
+    } */
+
+
+  };
+
+  return (
+    <div className='chat-container'>
+      <div className='chat-window'>
+        <Label>Samtalevindu</Label>
+        {messages.map((msg, i) => (
+          <div
+            className={msg.sender === 'user' ? 'message-user' : 'message-bot'}
+            key={i}>
+            {msg.text}
+          </div>
+        ))}
+      </div>
+      <Divider />
+      <Label>Send melding</Label>
+      {loading && <div>Venter på svar...</div>}
+      <Textarea value={value} onChange={(e) => setValue(e.target.value)} />
+      <Button onClick={handleSubmit}>Send</Button>
+    </div>
+  );
+}
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src={logo} className='logo' alt="desKI logo" style={{ width: '240px' }} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ChatUI />
     </>
   );
 }

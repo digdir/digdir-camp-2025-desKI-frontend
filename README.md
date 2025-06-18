@@ -31,6 +31,28 @@ npm run dev
 ```
 The app will start at http://localhost:5173
 
+## Biome
+This project uses Biome for formatting, linting, and import sorting.
+
+Run linter to catch common errors:
+```bash 
+npm run lint
+```
+
+Format code and auto-fix issues
+```bash
+npm run format
+```
+
+Check formatting (without changing files)
+```bash
+npm run format:check
+```
+
+Full check: lint + formatting + imports
+```bash
+npm run check
+```
 
 ## React + TypeScript + Vite
 

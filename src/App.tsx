@@ -80,7 +80,7 @@ function App() {
       </div>
       <ChatUI />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

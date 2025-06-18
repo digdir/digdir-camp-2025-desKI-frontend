@@ -1,0 +1,63 @@
+name: Verify
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+#Ensures that only the latest workflow run per branch or PR is active.
+concurrency:
+group: ${{ github.ref_name }}
+cancel-in-progress: true
+
+
+jobs:
+  frontend:
+    name: Verify Frontend
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      #TODO: Uncomment when Biome is ready
+      # - name: Run Biome
+      #   run: npx biome ci .
+
+      - name: Build frontend
+        run: npm run build
+
+  docker:
+    name: Verify Docker Build
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t deski-frontend-test .
+

@@ -13,8 +13,8 @@ on:
 
 #Ensures that only the latest workflow run per branch or PR is active.
 concurrency:
-group: ${{ github.ref_name }}
-cancel-in-progress: true
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
 
 
 jobs:

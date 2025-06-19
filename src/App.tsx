@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-import { Textarea, Label, Divider, Button } from '@digdir/designsystemet-react';
+import { Button, Divider, Label, Textarea } from '@digdir/designsystemet-react';
 import logo from './assets/logo.png';
 
 function ChatUI() {

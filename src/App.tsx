@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 import { Textarea, Label, Divider, Button } from '@digdir/designsystemet-react';
 import logo from './assets/logo.png';
 
 function ChatUI() {
   const [value, setValue] = useState('');
-  const [messages, setMessages] = useState<{ sender: 'user' | 'bot'; text: string }[]>([]);
+  const [messages, setMessages] = useState<
+    { sender: 'user' | 'bot'; text: string }[]
+  >([]);
   const [loading, setLoading] = useState(false);
-
 
   const handleSubmit = async () => {
     if (!value.trim()) return;
@@ -23,11 +24,11 @@ function ChatUI() {
       ]);
       setLoading(false);
     }, 700);
-    // TODO: 
+    // TODO:
     // Erstatt dette med eit faktisk API-kall når du er klar
     // Det må naturlegvis tilpassast til ditt API-endepunkt og datamodell.
     // Det er også laga enkel error-håndtering for å fange opp feil ved innsending.
-/* 
+    /* 
     try {
       const res = await fetch('https://ollama.sandkasse.ai/api/generate', {
         method: 'POST',
@@ -47,18 +48,17 @@ function ChatUI() {
     } finally {
       setLoading(false);
     } */
-
-
   };
 
   return (
-    <div className='chat-container'>
-      <div className='chat-window'>
+    <div className="chat-container">
+      <div className="chat-window">
         <Label>Samtalevindu</Label>
         {messages.map((msg, i) => (
           <div
+            key={i}
             className={msg.sender === 'user' ? 'message-user' : 'message-bot'}
-            key={i}>
+          >
             {msg.text}
           </div>
         ))}
@@ -72,11 +72,15 @@ function ChatUI() {
   );
 }
 function App() {
-
   return (
     <>
       <div>
-        <img src={logo} className='logo' alt="desKI logo" style={{ width: '240px' }} />
+        <img
+          src={logo}
+          className="logo"
+          alt="desKI logo"
+          style={{ width: '240px' }}
+        />
       </div>
       <ChatUI />
     </>

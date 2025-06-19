@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main
-      - develop
+      - dev
     types:
       - opened
       - reopened
@@ -13,8 +13,8 @@ on:
 
 #Ensures that only the latest workflow run per branch or PR is active.
 concurrency:
-group: ${{ github.ref_name }}
-cancel-in-progress: true
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
 
 
 jobs:
@@ -22,10 +22,6 @@ jobs:
     name: Verify Frontend
     if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./frontend
 
     steps:
       - name: Checkout code
@@ -39,9 +35,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      #TODO: Uncomment when Biome is ready
-      # - name: Run Biome
-      #   run: npx biome ci .
+      - name: Run Biome
+        run: npx biome ci .
 
       - name: Build frontend
         run: npm run build

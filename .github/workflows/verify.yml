@@ -13,8 +13,8 @@ on:
 
 #Ensures that only the latest workflow run per branch or PR is active.
 concurrency:
-  group: ${{ github.ref_name }}
-  cancel-in-progress: true
+group: ${{ github.ref_name }}
+cancel-in-progress: true
 
 
 jobs:
@@ -22,6 +22,10 @@ jobs:
     name: Verify Frontend
     if: ${{ !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend
 
     steps:
       - name: Checkout code

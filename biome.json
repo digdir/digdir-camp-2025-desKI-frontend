@@ -24,9 +24,6 @@
       "recommended": true,
       "correctness": {
         "noUnusedImports": "error"
-      },
-      "suspicious": {
-        "noArrayIndexKey": "off"
       }
     }
   },

@@ -2,12 +2,12 @@
 This file should contain common styles that are shared across multiple components.
 */
 body {
-  font-family: "Inter", sans-serif;
-  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
 }
 :root {
-  font-family: "Inter", sans-serif;
-  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
   line-height: 1.5;
   font-weight: 400;
 

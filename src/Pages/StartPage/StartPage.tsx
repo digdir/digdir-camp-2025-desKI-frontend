@@ -1,4 +1,5 @@
 import { Card } from '@digdir/designsystemet-react';
+import { Link } from 'react-router';
 import { logoLight } from '~/assets';
 import styles from './StartPage.module.css';
 
@@ -27,9 +28,15 @@ export function StartPage() {
       </div>
       <div className={styles.cardContainer}>
         {solutions.map((title) => (
-          <Card key={title} className={styles.solutionCard} variant="tinted">
-            {title}
-          </Card>
+          <Link
+            key={title}
+            to={`/chatbot?solution=${title}`}
+            className={styles.cardLink}
+          >
+            <Card className={styles.solutionCard} variant="tinted">
+              {title}
+            </Card>
+          </Link>
         ))}
       </div>
     </div>

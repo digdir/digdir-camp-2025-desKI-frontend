@@ -1,0 +1,52 @@
+.mainContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  top: 10%;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: calc(4 * 240px + 3 * 1.5rem);
+  margin: 0 auto;
+}
+
+.solutionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2em;
+  border-radius: 8px;
+  background-color: var(--ds-color-warning-surface-tinted);
+  border-color: var(--ds-color-warning-border-subtle);
+}
+
+.solutionCard:hover {
+  background-color: var(--ds-color-warning-surface-hover);
+  border-color: var(--ds-color-warning-base-default);
+  cursor: pointer;
+}
+
+.logo {
+  position: relative;
+}
+
+.headerQuestion {
+  font-weight: 500;
+}

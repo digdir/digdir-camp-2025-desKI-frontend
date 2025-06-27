@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './assets/common.css';
 import App from './App.tsx';
+import './styles/common.css';
 
 // Importing designsystemet here and only here
 // Import local styles as needed

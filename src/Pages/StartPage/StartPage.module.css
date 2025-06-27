@@ -37,6 +37,12 @@
     border-color: var(--ds-color-warning-border-subtle);
 }
 
+.solutionCard:hover {
+    background-color: var(--ds-color-warning-surface-hover);
+    border-color: var(--ds-color-warning-base-default);
+    cursor: pointer;
+}
+
 
 .logo {
     position: relative;

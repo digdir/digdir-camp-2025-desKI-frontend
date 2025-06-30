@@ -1,7 +1,6 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
 import {
   ChevronDownIcon,
-  ChevronUpIcon,
   PaperplaneIcon,
 } from '@navikt/aksel-icons';
 import { useState } from 'react';
@@ -49,12 +48,8 @@ export function ChatbotPage() {
             onClick={() => setOpen(!open)}
           >
             {/* TODO: Add context */}
-            {searchParams.get('solution') || 'Select a solution'}
-            {open ? (
-              <ChevronDownIcon aria-hidden />
-            ) : (
-              <ChevronUpIcon aria-hidden />
-            )}
+            {searchParams.get('solution')}
+            <ChevronDownIcon aria-hidden />
           </Dropdown.Trigger>
           <Dropdown open={open} onClose={() => setOpen(false)}>
             <Dropdown.List>

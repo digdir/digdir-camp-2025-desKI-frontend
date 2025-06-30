@@ -10,7 +10,7 @@ export function StartPage() {
       <div className={styles.headerContainer}>
         <img src={logoLight} className={styles.logo} alt="desKI logo" />
         <h2 className={styles.headerQuestion}>
-          Which solution can I help you with today?
+          Hei, hvilken løsning vil du ha hjelp med i dag?
         </h2>
       </div>
       <div className={styles.cardContainer}>

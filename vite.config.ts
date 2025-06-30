@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 // https://vite.dev/config/
 
 /*
-   * Vite configuration file for the React application.
+ * Vite configuration file for the React application.
  */
 export default defineConfig({
   plugins: [react()],

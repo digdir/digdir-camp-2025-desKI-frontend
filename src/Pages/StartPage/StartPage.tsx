@@ -3,11 +3,11 @@ import { logoLight } from '~/assets';
 import styles from './StartPage.module.css';
 
 /*
-  * StartPage component that displays a list of solutions that the user can select to get help with.
-  * Each solution is displayed as a card.
-  * The component is styled using CSS modules.
-  * @returns {JSX.Element} The rendered StartPage component.
-*/
+ * StartPage component that displays a list of solutions that the user can select to get help with.
+ * Each solution is displayed as a card.
+ * The component is styled using CSS modules.
+ * @returns {JSX.Element} The rendered StartPage component.
+ */
 
 export function StartPage() {
   const solutions = [
@@ -26,8 +26,8 @@ export function StartPage() {
   ];
 
   /*
-    * The main container for the StartPage component.
-  */
+   * The main container for the StartPage component.
+   */
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>

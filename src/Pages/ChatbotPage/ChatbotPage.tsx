@@ -14,7 +14,7 @@ export function ChatbotPage() {
       <div className={styles.headerContainer}>
         <img src={logoLight} className={styles.logo} alt="desKI logo" />
         <Dropdown.TriggerContext>
-          <Dropdown.Trigger className={styles.dropdownTrigger}>
+          <Dropdown.Trigger className={styles.dropdownTrigger} onClick={() => setOpen(!open)}>
             {/* TODO: Add context */}
             {searchParams.get('solution') || 'Select a solution'}
             {open ? (
@@ -23,7 +23,7 @@ export function ChatbotPage() {
               <ChevronUpIcon aria-hidden />
             )}
           </Dropdown.Trigger>
-          <Dropdown>
+          <Dropdown open={open} onClose ={() => setOpen(false)}>
             <Dropdown.List>
               {solutions.map((solution) => (
                 <Dropdown.Button

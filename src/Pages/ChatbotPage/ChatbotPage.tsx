@@ -1,7 +1,7 @@
 import { Button, Dropdown, Input } from "@digdir/designsystemet-react";
 import { ChevronDownIcon, PaperplaneIcon } from "@navikt/aksel-icons";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { logoLight } from "~/assets";
 import { Chats } from "~/components/Chats/Chats";
 import { solutions } from "~/data/solutions";
@@ -38,7 +38,9 @@ export function ChatbotPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <img src={logoLight} className={styles.logo} alt="desKI logo" />
+        <Link to="/" className={styles.logoLink}>
+          <img src={logoLight} className={styles.logo} alt="desKI logo" />
+        </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger
             className={styles.dropdownTrigger}

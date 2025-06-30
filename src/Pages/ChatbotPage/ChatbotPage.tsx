@@ -7,12 +7,27 @@ import {
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { logoLight } from '~/assets';
+import { Chats } from '~/components/Chats/Chats';
 import { solutions } from '~/data/solutions';
 import styles from './ChatbotPage.module.css';
+
+type Message = {
+  sender: 'user' | 'bot';
+  text: string;
+};
 
 export function ChatbotPage() {
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
+
+  const messages: Message[] = [
+    { sender: 'user', text: 'I cannot log in to Ansattporten, I have tried a hundred times and it is not working. Please help me very soon.' },
+    { sender: 'bot', text: 'Your supervisor needs to give you access' },
+    { sender: 'user', text: 'How do I do that?' },
+    { sender: 'bot', text: 'You have to ask your supervisor' },
+    { sender: 'user', text: 'How do I do that?' },
+    { sender: 'bot', text: "I'm sorry, but I cannot help you with that." },
+  ];
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
@@ -45,7 +60,9 @@ export function ChatbotPage() {
         </Dropdown.TriggerContext>
       </div>
       <div className={styles.chatContainer}>
-        <div className={styles.messagesContainer}></div>
+        <div className={styles.messagesContainer}>
+          <Chats messages={messages} />
+        </div>
         <div className={styles.sendContainer}>
           <Input placeholder="Spør et spørsmål" className={styles.input} />
           <Button className={styles.sendButton} variant="primary">

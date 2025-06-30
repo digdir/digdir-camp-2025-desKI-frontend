@@ -1,0 +1,34 @@
+.userBubble {
+  align-self: flex-end;
+  background-color: var(--ds-color-brand1-base-default);
+  color: var(--ds-color-brand1-background-default);
+  padding: 1rem;
+  border-radius: 16px 16px 4px 16px;
+  max-width: 60%;
+  word-break: break-word;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+/* The tale on the bubble */
+.userBubble::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -15px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 10px 100px 0px 60px;
+  box-shadow: -10px 0px 0 0 var(--ds-color-brand1-base-default);
+}
+
+.botBubble {
+  align-self: flex-start;
+  background-color: transparent;
+  color: var(--ds-color-main-text-default);
+  padding: 1rem;
+  max-width: 60%;
+  word-break: break-word;
+  margin-bottom: 0.75rem;
+}

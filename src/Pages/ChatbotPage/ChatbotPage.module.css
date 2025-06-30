@@ -5,13 +5,13 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
+  gap: 50px;
 }
 .headerContainer {
   display: flex;
   flex-direction: row;
   width: 100%;
   position: relative;
-  bottom: 0px;
   align-items: center;
   gap: 20px;
   margin-left: 60px;
@@ -48,12 +48,16 @@
   flex-direction: column;
   flex: 1;
   padding: 2rem;
-  justify-content: center;
   align-items: center;
+  gap: 2rem;
+}
+
+.messagesContainer {
+  width: 80%;
 }
 
 .sendContainer {
-  width: 70%;
+  width: 77%;
   display: flex;
   flex-direction: row;
   justify-content: center;

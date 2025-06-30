@@ -1,6 +1,6 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
 import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { logoLight } from '~/assets';
 import { Chats } from '~/components/Chats/Chats';
@@ -17,6 +17,7 @@ export function ChatbotPage() {
   const [searchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
 
   function handleSend() {
     if (!inputValue.trim()) return;
@@ -34,6 +35,10 @@ export function ChatbotPage() {
       setMessages((prev) => [...prev, botReply]);
     }, 1000);
   }
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div className={styles.mainContainer}>
@@ -67,6 +72,7 @@ export function ChatbotPage() {
       <div className={styles.chatContainer}>
         <div className={styles.messagesContainer}>
           <Chats messages={messages} />
+          <div ref={bottomRef} />
         </div>
         {messages.length === 0 && (
           <h2 className={styles.introText}>Hva lurer du på?</h2>

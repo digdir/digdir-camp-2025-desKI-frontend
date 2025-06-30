@@ -1,5 +1,9 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
-import { ChevronDownIcon, ChevronUpIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  PaperplaneIcon,
+} from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { logoLight } from '~/assets';
@@ -10,43 +14,45 @@ export function ChatbotPage() {
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
   return (
-    <>
-      <div className={styles.mainContainer}>
-        <div className={styles.headerContainer}>
-          <img src={logoLight} className={styles.logo} alt="desKI logo" />
-          <Dropdown.TriggerContext>
-            <Dropdown.Trigger className={styles.dropdownTrigger} onClick={() => setOpen(!open)}>
-              {/* TODO: Add context */}
-              {searchParams.get('solution') || 'Select a solution'}
-              {open ? (
-                <ChevronDownIcon aria-hidden />
-              ) : (
-                <ChevronUpIcon aria-hidden />
-              )}
-            </Dropdown.Trigger>
-            <Dropdown open={open} onClose={() => setOpen(false)}>
-              <Dropdown.List>
-                {solutions.map((solution) => (
-                  <Dropdown.Button
-                    key={solution}
-                    className={styles.dropdownButton}
-                  >
-                    {solution}
-                  </Dropdown.Button>
-                ))}
-              </Dropdown.List>
-            </Dropdown>
-          </Dropdown.TriggerContext>
-        </div>
+    <div className={styles.mainContainer}>
+      <div className={styles.headerContainer}>
+        <img src={logoLight} className={styles.logo} alt="desKI logo" />
+        <Dropdown.TriggerContext>
+          <Dropdown.Trigger
+            className={styles.dropdownTrigger}
+            onClick={() => setOpen(!open)}
+          >
+            {/* TODO: Add context */}
+            {searchParams.get('solution') || 'Select a solution'}
+            {open ? (
+              <ChevronDownIcon aria-hidden />
+            ) : (
+              <ChevronUpIcon aria-hidden />
+            )}
+          </Dropdown.Trigger>
+          <Dropdown open={open} onClose={() => setOpen(false)}>
+            <Dropdown.List>
+              {solutions.map((solution) => (
+                <Dropdown.Button
+                  key={solution}
+                  className={styles.dropdownButton}
+                >
+                  {solution}
+                </Dropdown.Button>
+              ))}
+            </Dropdown.List>
+          </Dropdown>
+        </Dropdown.TriggerContext>
       </div>
       <div className={styles.chatContainer}>
-          <div className={styles.sendContainer}>
-            <Input placeholder='Spør et spørsmål' className={styles.input}></Input>
-            <Button className={styles.sendButton} variant="primary"> 
-              <PaperplaneIcon/>
-            </Button>
-          </div>
+        <div className={styles.messagesContainer}></div>
+        <div className={styles.sendContainer}>
+          <Input placeholder="Spør et spørsmål" className={styles.input} />
+          <Button className={styles.sendButton} variant="primary">
+            <PaperplaneIcon />
+          </Button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

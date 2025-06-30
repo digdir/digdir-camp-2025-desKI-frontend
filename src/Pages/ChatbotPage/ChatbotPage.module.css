@@ -1,6 +1,10 @@
 .mainContainer {
   position: absolute;
   top: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }
 .headerContainer {
   display: flex;
@@ -40,36 +44,32 @@
 }
 
 .chatContainer {
-  position: absolute;
-  bottom: 10%;
-  left: 0px;
-  width: 100%;
   display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
   justify-content: center;
+  align-items: center;
 }
 
 .sendContainer {
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
-
-.input {
-  width: 80%;
+  gap: 10px;
 }
 
 .sendButton {
-    height: 70%;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    margin-left: 10px;
-    background-color: var(--ds-color-warning-base-default);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: large;
+  height: 70%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin-left: 10px;
+  background-color: var(--ds-color-warning-base-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
 }
-

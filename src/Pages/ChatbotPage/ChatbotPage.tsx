@@ -19,15 +19,26 @@ type Message = {
 export function ChatbotPage() {
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
+  const [inputValue, setInputValue] = useState('');
+  const [messages, setMessages] = useState<Message[]>([]);
 
-  const messages: Message[] = [
-    { sender: 'user', text: 'I cannot log in to Ansattporten, I have tried a hundred times and it is not working. Please help me very soon.' },
-    { sender: 'bot', text: 'Your supervisor needs to give you access' },
-    { sender: 'user', text: 'How do I do that?' },
-    { sender: 'bot', text: 'You have to ask your supervisor' },
-    { sender: 'user', text: 'How do I do that?' },
-    { sender: 'bot', text: "I'm sorry, but I cannot help you with that." },
-  ];
+  function handleSend() {
+    if (!inputValue.trim()) return;
+
+    const userMessage: Message = { sender: 'user', text: inputValue };
+    setMessages((prev) => [...prev, userMessage]);
+    setInputValue('');
+
+    // TODO: Replace with actual API call to desKI
+    setTimeout(() => {
+      const botReply: Message = {
+        sender: 'bot',
+        text: 'Dette er et eksempel på et svar fra desKI 🤖',
+      };
+      setMessages((prev) => [...prev, botReply]);
+    }, 1000);
+  }
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
@@ -64,8 +75,18 @@ export function ChatbotPage() {
           <Chats messages={messages} />
         </div>
         <div className={styles.sendContainer}>
-          <Input placeholder="Spør et spørsmål" className={styles.input} />
-          <Button className={styles.sendButton} variant="primary">
+          <Input
+            placeholder="Spør et spørsmål"
+            className={styles.input}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+          />
+          <Button
+            className={styles.sendButton}
+            variant="primary"
+            onClick={handleSend}
+          >
             <PaperplaneIcon />
           </Button>
         </div>

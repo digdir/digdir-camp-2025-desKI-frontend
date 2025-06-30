@@ -66,6 +66,11 @@
   gap: 10px;
 }
 
+.input {
+  border-radius: 20px;
+  width: 100;
+}
+
 .sendButton {
   height: 70%;
   aspect-ratio: 1 / 1;

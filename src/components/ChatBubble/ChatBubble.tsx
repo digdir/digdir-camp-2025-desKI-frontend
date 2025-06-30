@@ -7,7 +7,10 @@ type Props = {
 
 export function ChatBubble({ message, sender }: Props) {
   return (
-    <div className={sender === 'user' ? styles.userBubble : styles.botBubble} data-color="support">
+    <div
+      className={sender === 'user' ? styles.userBubble : styles.botBubble}
+      data-color="support"
+    >
       {message}
     </div>
   );

@@ -12,7 +12,7 @@
 
 /* The tale on the bubble */
 .userBubble::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: -15px;

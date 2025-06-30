@@ -1,3 +1,4 @@
+/* Container that centers all content vertically and horizontally */
 .mainContainer {
   position: absolute;
   display: flex;
@@ -8,6 +9,7 @@
   top: 10%;
 }
 
+/* Container for the header section */
 .headerContainer {
   display: flex;
   flex-direction: column;
@@ -15,6 +17,7 @@
   width: 100%;
 }
 
+/* Grid container for the solution cards */
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -25,6 +28,7 @@
   margin: 0 auto;
 }
 
+/* Styling for individual solution cards */
 .solutionCard {
   display: flex;
   flex-direction: column;
@@ -37,16 +41,19 @@
   border-color: var(--ds-color-warning-border-subtle);
 }
 
+/* Hover effect for solution cards */
 .solutionCard:hover {
   background-color: var(--ds-color-warning-surface-hover);
   border-color: var(--ds-color-warning-base-default);
   cursor: pointer;
 }
 
+/* Container for the logo image */
 .logo {
   position: relative;
 }
 
+/* Styling for the header question text */
 .headerQuestion {
   font-weight: 500;
 }

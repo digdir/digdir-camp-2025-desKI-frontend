@@ -1,23 +1,10 @@
 import { Card } from '@digdir/designsystemet-react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { logoLight } from '~/assets';
+import { solutions } from '~/data/solutions';
 import styles from './StartPage.module.css';
 
 export function StartPage() {
-  const solutions = [
-    'ID-porten',
-    'Maskinporten',
-    'eFormidling',
-    'eSignering',
-    'Kontakt- og reservasjonsregisteret',
-    'Digital postkasse til Innbyggere',
-    'eInnsyn',
-    'ELMA',
-    'Ansattporten',
-    'Peppol eGovernment',
-    'Digital lommebok',
-    'Other',
-  ];
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>

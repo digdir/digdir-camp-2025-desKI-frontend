@@ -13,6 +13,7 @@ type Message = {
 };
 
 export function ChatbotPage() {
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
@@ -28,6 +29,8 @@ export function ChatbotPage() {
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
 
+    setLoading(true);
+
     // TODO: Replace with actual API call to desKI
     setTimeout(() => {
       const botReply: Message = {
@@ -35,6 +38,7 @@ export function ChatbotPage() {
         text: 'Dette er et eksempel på et svar fra desKI 🤖',
       };
       setMessages((prev) => [...prev, botReply]);
+      setLoading(false);
     }, 1000);
   }
 
@@ -79,7 +83,7 @@ export function ChatbotPage() {
         }`}
       >
         <div className={styles.messagesContainer}>
-          <Chats messages={messages} />
+          <Chats messages={messages} loading={loading} />
           <div ref={bottomRef} />
         </div>
         {isFirstMessage && (

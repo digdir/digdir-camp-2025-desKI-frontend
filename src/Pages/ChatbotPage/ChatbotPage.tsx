@@ -19,6 +19,8 @@ export function ChatbotPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
+  const isFirstMessage = messages.length === 0;
+
   function handleSend() {
     if (!inputValue.trim()) return;
 
@@ -71,15 +73,23 @@ export function ChatbotPage() {
           </Dropdown>
         </Dropdown.TriggerContext>
       </div>
-      <div className={styles.chatContainer}>
+      <div
+        className={`${styles.chatContainer} ${
+          isFirstMessage ? styles.chatContainerCentered : ''
+        }`}
+      >
         <div className={styles.messagesContainer}>
           <Chats messages={messages} />
           <div ref={bottomRef} />
         </div>
-        {messages.length === 0 && (
+        {isFirstMessage && (
           <h2 className={styles.introText}>Hva lurer du på?</h2>
         )}
-        <div className={styles.sendContainer}>
+        <div
+          className={`${styles.sendContainer} ${
+            !isFirstMessage ? styles.atBottom : ''
+          }`}
+        >
           <div className={styles.inputWrapper}>
             <Input
               placeholder="Spør et spørsmål"

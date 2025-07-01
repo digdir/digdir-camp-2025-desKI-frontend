@@ -51,6 +51,7 @@
 }
 
 .chatContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -59,6 +60,10 @@
   align-items: center;
   gap: 2rem;
   height: 100%;
+}
+
+.chatContainerCentered {
+  margin-top: 15%;
 }
 
 .messagesContainer {
@@ -79,6 +84,11 @@
   align-items: center;
   padding: 20px;
   gap: 10px;
+}
+
+.atBottom {
+  margin-top: auto;
+  align-self: center;
 }
 
 .inputWrapper {

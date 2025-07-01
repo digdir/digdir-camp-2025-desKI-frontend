@@ -11,6 +11,12 @@ type ChatsProps = {
   loading?: boolean;
 };
 
+/**
+ * Displays a list of chat messages along with a loading indicator.
+ *
+ * @param messages - Array of chat messages to display.
+ * @param loading - Whether the chatbot is currently loading a response.
+ */
 export function Chats({ messages, loading }: ChatsProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>

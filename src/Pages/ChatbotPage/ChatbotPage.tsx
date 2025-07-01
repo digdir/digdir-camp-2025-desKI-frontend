@@ -12,6 +12,10 @@ type Message = {
   text: string;
 };
 
+/**
+ * The main chatbot interface component.
+ * Handles input, dropdown solution selection, chat message rendering, and auto-scrolling.
+ */
 export function ChatbotPage() {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -42,7 +46,7 @@ export function ChatbotPage() {
     }, 1000);
   }
 
-  // Scroll to the bottom of the chat when messages change
+  // Scrolls to the latest message when the message list updates.
   // biome-ignore lint/correctness/useExhaustiveDependencies: Needed to scroll on message update
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -59,7 +63,6 @@ export function ChatbotPage() {
             className={styles.dropdownTrigger}
             onClick={() => setOpen(!open)}
           >
-            {/* TODO: Add context */}
             {searchParams.get('solution')}
             <ChevronDownIcon aria-hidden />
           </Dropdown.Trigger>

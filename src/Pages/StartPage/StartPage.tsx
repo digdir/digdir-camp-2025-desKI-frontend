@@ -4,6 +4,10 @@ import { logoLight } from '~/assets';
 import { solutions } from '~/data/solutions';
 import styles from './StartPage.module.css';
 
+/**
+ * Displays the initial landing page where users choose a solution to get help with.
+ * Clicking a card routes to the chatbot page with the selected solution.
+ */
 export function StartPage() {
   return (
     <div className={styles.mainContainer}>

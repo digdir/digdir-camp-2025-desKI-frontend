@@ -36,6 +36,8 @@ export function ChatbotPage() {
     }, 1000);
   }
 
+  // Scroll to the bottom of the chat when messages change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Needed to scroll on message update
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);

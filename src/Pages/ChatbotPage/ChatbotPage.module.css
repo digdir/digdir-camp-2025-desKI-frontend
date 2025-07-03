@@ -1,0 +1,140 @@
+.mainContainer {
+  position: absolute;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  gap: 50px;
+  background-color: var(--ds-color-neutral-background-tinted);
+  align-items: center;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  gap: 20px;
+  margin: 30px;
+  margin-left: 10rem;
+}
+
+.logoLink {
+  cursor: pointer;
+}
+
+.dropdownTrigger {
+  color: var(--ds-color-main-text-default);
+  margin-top: 30px;
+  background-color: var(--ds-color-neutral-background-tinted);
+  border: none;
+}
+
+.dropdownTrigger:hover,
+.dropdownTrigger:focus,
+.dropdownTrigger:active,
+.dropdownTrigger:focus-visible {
+  background-color: var(--ds-color-neutral-surface-hover);
+  border: none;
+  outline: none;
+}
+
+.dropdownButton {
+  border: none;
+  outline: none;
+}
+
+.dropdownButton:hover {
+  border: none;
+  background-color: var(--ds-color-neutral-surface-hover);
+}
+
+.chatContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  padding-top: 0.5rem;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+  max-width: 70rem;
+  width: 100%;
+}
+
+.chatContainerCentered {
+  margin-top: 10%;
+}
+
+.messagesContainer {
+  width: 80%;
+}
+
+.introText {
+  font-weight: 500;
+}
+
+.sendContainer {
+  position: sticky;
+  bottom: 1rem;
+  width: 77%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.atBottom {
+  margin-top: auto;
+  align-self: center;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  border-radius: 20px;
+  padding: 20px;
+  padding-right: 3.5rem;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.input:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.sendButton {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  height: 70%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--ds-color-warning-base-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  padding: 0;
+  margin: 0;
+}
+
+.sendButton:hover {
+  outline: none;
+  border: none;
+  background-color: var(--ds-color-brand2-base-hover);
+}

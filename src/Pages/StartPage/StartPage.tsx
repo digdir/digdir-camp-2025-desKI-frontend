@@ -1,6 +1,7 @@
 import { Card } from '@digdir/designsystemet-react';
 import { logoLight } from '~/assets';
 import styles from './StartPage.module.css';
+import { UtilityBar } from '~/components/UtilityBar/UtilityBar';
 
 export function StartPage() {
   const solutions = [
@@ -19,6 +20,7 @@ export function StartPage() {
   ];
   return (
     <div className={styles.mainContainer}>
+      <UtilityBar />
       <div className={styles.headerContainer}>
         <img src={logoLight} className={styles.logo} alt="desKI logo" />
         <h2 className={styles.headerQuestion}>

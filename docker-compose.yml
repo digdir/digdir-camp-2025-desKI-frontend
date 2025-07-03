@@ -1,5 +1,13 @@
 services:
   frontend:
-    build: .
+    build:
+      context: .
     ports:
-      - "3000:80"
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev -- --host 0.0.0.0 --port 3000
+

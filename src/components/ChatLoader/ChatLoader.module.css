@@ -1,0 +1,18 @@
+.messageSkeletonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.messageSkeleton {
+  background-color: var(--ds-color-brand1-base-default);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 100%;
+}
+
+.skeleton {
+  height: 10px;
+  width: 10px;
+}

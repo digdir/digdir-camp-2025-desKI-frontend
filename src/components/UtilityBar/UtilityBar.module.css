@@ -1,0 +1,33 @@
+.utilityBarContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-right: 1.5rem;
+}
+
+.utilityButton {
+  background-color: transparent;
+  color: var(--ds-color-main-text);
+  padding: 0;
+  font-size: x-large;
+}
+
+.utilityButton:hover {
+  background-color: var(--ds-color-neutral-surface-hover);
+  color: var(--ds-color-main-text);
+  cursor: pointer;
+}
+
+.utilityButton, .utilityButton:hover, .utilityButton:focus, .utilityButton:active {
+  outline: none;
+  border: none;
+}
+
+.moonIcon {
+    padding: 0rem;
+    margin: 0rem;
+}

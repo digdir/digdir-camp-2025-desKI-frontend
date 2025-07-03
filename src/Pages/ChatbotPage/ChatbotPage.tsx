@@ -26,25 +26,44 @@ export function ChatbotPage() {
 
   const isFirstMessage = messages.length === 0;
 
-  function handleSend() {
-    if (!inputValue.trim()) return;
+  async function handleSend() {
+  if (!inputValue.trim()) return;
 
-    const userMessage: Message = { sender: 'user', text: inputValue };
-    setMessages((prev) => [...prev, userMessage]);
-    setInputValue('');
+  const userMessage: Message = { sender: 'user', text: inputValue };
+  setMessages((prev) => [...prev, userMessage]);
+  setInputValue('');
+  setLoading(true);
 
-    setLoading(true);
+  try {
+    const response = await fetch('http://localhost:8000/chatbot', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ question: inputValue }),
+    });
 
-    // TODO: Replace with actual API call to desKI
-    setTimeout(() => {
-      const botReply: Message = {
-        sender: 'bot',
-        text: 'Dette er et eksempel på et svar fra desKI 🤖',
-      };
-      setMessages((prev) => [...prev, botReply]);
-      setLoading(false);
-    }, 1000);
+    if (!response.ok) throw new Error('API call failed');
+
+    const data = await response.json();
+
+    const botReply: Message = {
+      sender: 'bot',
+      text: data.answer || '(Tomt svar)',
+    };
+
+    setMessages((prev) => [...prev, botReply]);
+  } catch (err) {
+    console.error('Chatbot error:', err);
+    setMessages((prev) => [
+      ...prev,
+      { sender: 'bot', text: 'Feil ved henting av svar fra desKI.' },
+    ]);
+  } finally {
+    setLoading(false);
   }
+}
+
 
   // Scrolls to the latest message when the message list updates.
   // biome-ignore lint/correctness/useExhaustiveDependencies: Needed to scroll on message update

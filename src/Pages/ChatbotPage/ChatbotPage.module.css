@@ -132,3 +132,9 @@
   padding: 0;
   margin: 0;
 }
+
+.sendButton:hover {
+  outline: none;
+  border: none;
+  background-color: var(--ds-color-brand2-base-hover);
+}

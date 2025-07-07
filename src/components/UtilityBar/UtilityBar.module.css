@@ -23,12 +23,15 @@
   cursor: pointer;
 }
 
-.utilityButton, .utilityButton:hover, .utilityButton:focus, .utilityButton:active {
+.utilityButton,
+.utilityButton:hover,
+.utilityButton:focus,
+.utilityButton:active {
   outline: none;
   border: none;
 }
 
 .moonIcon {
-    padding: 0rem;
-    margin: 0rem;
+  padding: 0rem;
+  margin: 0rem;
 }

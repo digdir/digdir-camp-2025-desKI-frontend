@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { logoLight } from '~/assets';
 import { solutions } from '~/data/solutions';
 import styles from './StartPage.module.css';
-import { UtilityBar } from '~/components/UtilityBar/UtilityBar';
 
 /**
  * Displays the initial landing page where users choose a solution to get help with.
@@ -12,7 +11,6 @@ import { UtilityBar } from '~/components/UtilityBar/UtilityBar';
 export function StartPage() {
   return (
     <div className={styles.mainContainer}>
-      <UtilityBar />
       <div className={styles.headerContainer}>
         <img src={logoLight} className={styles.logo} alt="desKI logo" />
         <h2 className={styles.headerQuestion}>

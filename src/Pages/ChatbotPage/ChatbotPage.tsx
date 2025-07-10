@@ -1,12 +1,15 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
-import { CameraIcon, ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import {
+  CameraIcon,
+  ChevronDownIcon,
+  PaperplaneIcon,
+} from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { logoLight } from '~/assets';
 import { Chats } from '~/components/Chats/Chats';
 import { solutions } from '~/data/solutions';
 import styles from './ChatbotPage.module.css';
-
 
 type Message = {
   sender: 'user' | 'bot';
@@ -76,7 +79,7 @@ export function ChatbotPage() {
   function handleRemoveImage(index: number) {
     setUploadedImages((prev) => prev.filter((_, i) => i !== index));
   }
-  
+
   // Scrolls to the latest message when the message list updates.
   // biome-ignore lint/correctness/useExhaustiveDependencies: Needed to scroll on message update
   useEffect(() => {
@@ -100,7 +103,10 @@ export function ChatbotPage() {
           <Dropdown open={open} onClose={() => setOpen(false)}>
             <Dropdown.List>
               {solutions.map((solution) => (
-                <Dropdown.Button key={solution} className={styles.dropdownButton}>
+                <Dropdown.Button
+                  key={solution}
+                  className={styles.dropdownButton}
+                >
                   {solution}
                 </Dropdown.Button>
               ))}
@@ -140,6 +146,7 @@ export function ChatbotPage() {
                     />
                     <button
                       className={styles.removeImageButton}
+                      type="button"
                       onClick={() => handleRemoveImage(index)}
                       aria-label={`Fjern bilde ${index + 1}`}
                     >
@@ -150,9 +157,7 @@ export function ChatbotPage() {
               </div>
             )}
 
-            {imageError && (
-              <p className={styles.imageError}>{imageError}</p>
-            )}
+            {imageError && <p className={styles.imageError}>{imageError}</p>}
 
             <div className={styles.inputWrapper}>
               <Input

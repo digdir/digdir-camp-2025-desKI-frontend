@@ -36,9 +36,9 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
         {Array.isArray(imageUrls) && imageUrls.length > 0 && (
           <div className={styles.imageGrid}>
             {imageUrls.map((url, index) => (
-              <a
+              <button
                 key={index}
-                href="#"
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
                   openImageFullscreen(url);
@@ -50,7 +50,7 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
                   alt={`Bilde ${index + 1}`}
                   className={styles.chatImage}
                 />
-              </a>
+              </button>
             ))}
           </div>
         )}
@@ -71,6 +71,7 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
             className={styles.closeButton}
             onClick={closeFullscreen}
             aria-label="Lukk bilde"
+            type="button"
           >
             ✕
           </button>

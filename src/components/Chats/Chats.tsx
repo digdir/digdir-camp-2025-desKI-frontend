@@ -28,7 +28,6 @@ export function Chats({ messages, loading }: ChatsProps) {
           message={msg.text}
           imageUrls={msg.imageUrls}
         />
-
       ))}
 
       {loading && <ChatLoader />}

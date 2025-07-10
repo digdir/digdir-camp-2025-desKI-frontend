@@ -4,6 +4,7 @@ import { ChatLoader } from '../ChatLoader/ChatLoader';
 type Message = {
   sender: 'user' | 'bot';
   text: string;
+  imageUrls?: string[];
 };
 
 type ChatsProps = {
@@ -21,7 +22,12 @@ export function Chats({ messages, loading }: ChatsProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       {messages.map((msg, index) => (
-        <ChatBubble key={index} sender={msg.sender} message={msg.text} />
+        <ChatBubble
+          key={index}
+          sender={msg.sender}
+          message={msg.text}
+          imageUrls={msg.imageUrls}
+        />
       ))}
 
       {loading && <ChatLoader />}

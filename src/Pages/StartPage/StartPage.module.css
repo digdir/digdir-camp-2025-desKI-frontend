@@ -46,8 +46,20 @@
   border-color: var(--ds-color-warning-border-subtle);
 }
 
+[data-color-scheme="dark"] .solutionCard {
+  background-color: var(--ds-color-brand3-background-default);
+  border-color: var(--ds-color-brand3-border-strong);
+  border-width: 0.1rem;
+}
+
 .solutionCard:hover {
   background-color: var(--ds-color-warning-surface-hover);
   border-color: var(--ds-color-warning-base-default);
   cursor: pointer;
+}
+
+
+[data-color-scheme="dark"] .solutionCard:hover {
+  background-color: var(--ds-color-brand3-surface-hover);
+  border-color: var(--ds-color-brand3-border-strong);
 }

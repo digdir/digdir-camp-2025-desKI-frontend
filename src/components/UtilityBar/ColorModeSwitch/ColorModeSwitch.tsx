@@ -1,6 +1,6 @@
-import { Button } from "@digdir/designsystemet-react";
-import { MoonIcon, SunIcon } from "@navikt/aksel-icons";
-import { ColorMode, useColorMode } from "~/lib/settings";
+import { Button } from '@digdir/designsystemet-react';
+import { MoonIcon, SunIcon } from '@navikt/aksel-icons';
+import { ColorMode, useColorMode } from '~/lib/settings';
 import styles from '../UtilityBar.module.css';
 
 export default function ColorModeSwitch() {
@@ -8,16 +8,12 @@ export default function ColorModeSwitch() {
 
   // Fallback to system on first load — but only toggle light/dark manually
   const toggleColorMode = () => {
-    const newMode = colorMode === "dark" ? ColorMode.Light : ColorMode.Dark;
+    const newMode = colorMode === 'dark' ? ColorMode.Light : ColorMode.Dark;
     setColorMode(newMode);
   };
 
   const colorModeText = () => {
-    return colorMode === "dark" ? (
-      <SunIcon/>
-    ) : (
-      <MoonIcon/>
-    );
+    return colorMode === 'dark' ? <SunIcon /> : <MoonIcon />;
   };
 
   return (

@@ -3,9 +3,9 @@ import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Chats } from '~/components/Chats/Chats';
+import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
 import styles from './ChatbotPage.module.css';
-import { Logo } from '~/components/Logo/Logo';
 
 type Message = {
   sender: 'user' | 'bot';
@@ -56,7 +56,7 @@ export function ChatbotPage() {
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
         <Link to="/" className={styles.logoLink}>
-          <Logo/>
+          <Logo />
         </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger

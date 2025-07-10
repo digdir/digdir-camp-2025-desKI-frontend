@@ -1,12 +1,12 @@
 import { Button } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
-import styles from './UtilityBar.module.css';
 import ColorModeSwitch from './ColorModeSwitch/ColorModeSwitch';
+import styles from './UtilityBar.module.css';
 
 export function UtilityBar() {
   return (
     <div className={styles.utilityBarContainer}>
-      <ColorModeSwitch/>
+      <ColorModeSwitch />
       <Button className={styles.utilityButton}>
         <EarthIcon />
       </Button>

@@ -1,8 +1,8 @@
 import { Card } from '@digdir/designsystemet-react';
 import { Link } from 'react-router-dom';
+import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
 import styles from './StartPage.module.css';
-import { Logo } from '~/components/Logo/Logo';
 
 /**
  * Displays the initial landing page where users choose a solution to get help with.

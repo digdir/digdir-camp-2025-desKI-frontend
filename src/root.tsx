@@ -38,14 +38,16 @@ export default function RootLayout() {
 
   // Dynamically apply theme class
   useEffect(() => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     const shouldUseDark =
       colorMode === "dark" || (colorMode === "auto" && prefersDark);
 
-    const root = document.getElementById("app-root");
-    if (root) {
-      root.setAttribute("data-color-scheme", shouldUseDark ? "dark" : "light");
-    }
+    const html = document.documentElement;
+    html.setAttribute("data-color-scheme", shouldUseDark ? "dark" : "light");
+    html.classList.remove("dark", "light");
+    html.classList.add(shouldUseDark ? "dark" : "light");
   }, [colorMode]);
 
   return (

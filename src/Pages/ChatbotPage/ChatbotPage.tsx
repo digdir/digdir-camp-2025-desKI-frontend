@@ -110,7 +110,7 @@ export function ChatbotPage() {
               variant="primary"
               onClick={handleSend}
             >
-              <PaperplaneIcon className={styles.paper} />
+              <PaperplaneIcon className={styles.paperPlane} />
             </Button>
           </div>
         </div>

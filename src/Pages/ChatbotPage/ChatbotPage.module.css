@@ -27,7 +27,7 @@
 .dropdownTrigger {
   color: var(--ds-color-main-text-default);
   margin-top: 30px;
-  background-color: var(--ds-color-neutral-background-tinted);
+  background-color: transparent;
   border: none;
 }
 
@@ -136,4 +136,12 @@
   outline: none;
   border: none;
   background-color: var(--ds-color-brand2-base-hover);
+}
+
+[data-color-scheme="dark"] .sendButton {
+  background-color: var(--ds-color-brand2-base-send-button-dark);
+}
+
+.paperPlane {
+  color: var(--ds-color-neutral-text-default);
 }

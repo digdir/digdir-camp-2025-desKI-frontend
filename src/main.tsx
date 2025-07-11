@@ -1,18 +1,19 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App.tsx';
 import './styles/common.css';
 
 // Importing designsystemet here and only here
 // Import local styles as needed
 import '@digdir/designsystemet-theme';
 import '@digdir/designsystemet-css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './components/router/router.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 );

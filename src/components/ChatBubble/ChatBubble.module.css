@@ -23,6 +23,10 @@
   box-shadow: -10px 0px 0 0 var(--ds-color-brand1-base-default);
 }
 
+[data-color-scheme="dark"] .userBubble {
+  color: var(--ds-color-brand1-text-default);
+}
+
 .botBubble {
   align-self: flex-start;
   background-color: transparent;

@@ -27,7 +27,7 @@
 .dropdownTrigger {
   color: var(--ds-color-main-text-default);
   margin-top: 30px;
-  background-color: var(--ds-color-neutral-background-tinted);
+  background-color: transparent;
   border: none;
 }
 
@@ -123,17 +123,18 @@
   height: 70%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background-color: var(--ds-color-warning-base-default);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: large;
   padding: 0;
   margin: 0;
+  color: var(--ds-color-neutral-text-default);
 }
 
 .sendButton:hover {
   outline: none;
   border: none;
-  background-color: var(--ds-color-brand2-base-hover);
+  color: var(--ds-color-neutral-text-subtle);
 }

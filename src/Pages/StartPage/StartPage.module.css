@@ -42,12 +42,23 @@
   text-align: center;
   padding: 2em;
   border-radius: 8px;
-  background-color: var(--ds-color-warning-surface-tinted);
-  border-color: var(--ds-color-warning-border-subtle);
+  background-color: var(--ds-color-brand2-surface-tinted);
+  border-color: var(--ds-color-brand2-border-subtle);
 }
 
 .solutionCard:hover {
-  background-color: var(--ds-color-warning-surface-hover);
-  border-color: var(--ds-color-warning-base-default);
+  background-color: var(--ds-color-brand2-surface-hover);
+  border-color: var(--ds-color-brand2-base-default);
   cursor: pointer;
+}
+
+[data-color-scheme="dark"] .solutionCard {
+  background-color: var(--ds-color-brand3-background-default);
+  border-color: var(--ds-color-brand3-border-subtle);
+  border-width: 0.1rem;
+}
+
+[data-color-scheme="dark"] .solutionCard:hover {
+  background-color: var(--ds-color-brand3-surface-default);
+  border-color: var(--ds-color-brand3-border-subtle);
 }

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LOCALSTORAGE_KEY } from '~/i18n/i18n';
 import { LANGUAGES, type Language } from '~/i18n/types';
 import styles from '../UtilityBar.module.css';
+import { useState } from 'react';
 
 const languageLabels: Record<Language, string> = {
   nb: 'Bokmål',
@@ -13,18 +14,20 @@ const languageLabels: Record<Language, string> = {
 
 export function LanguageDropdown() {
   const { i18n } = useTranslation();
+  const [open, setOpen] = useState(false);
 
   const switchLanguage = (lang: Language) => {
     i18n.changeLanguage(lang);
     localStorage.setItem(LOCALSTORAGE_KEY, lang);
+    setOpen(false);
   };
 
   return (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger className={styles.utilityButton}>
+      <Dropdown.Trigger className={styles.utilityButton} onClick={() => setOpen(!open)}>
         <EarthIcon />
       </Dropdown.Trigger>
-      <Dropdown>
+      <Dropdown open={open} onClose={() => setOpen(false)}>
         <Dropdown.List>
           {(Object.values(LANGUAGES) as Language[]).map((lang) => (
             <Dropdown.Button

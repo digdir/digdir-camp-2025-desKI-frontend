@@ -2,7 +2,6 @@ import { Card } from '@digdir/designsystemet-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Logo } from '~/components/Logo/Logo';
-import { solutions } from '~/data/solutions';
 import { KEY } from '~/i18n/constants';
 import styles from './StartPage.module.css';
 
@@ -12,6 +11,8 @@ import styles from './StartPage.module.css';
  */
 export function StartPage() {
   const { t } = useTranslation();
+  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>

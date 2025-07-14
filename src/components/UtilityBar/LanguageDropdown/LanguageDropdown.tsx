@@ -1,10 +1,10 @@
 import { Dropdown } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LOCALSTORAGE_KEY } from '~/i18n/i18n';
 import { LANGUAGES, type Language } from '~/i18n/types';
 import styles from '../UtilityBar.module.css';
-import { useState } from 'react';
 
 const languageLabels: Record<Language, string> = {
   nb: 'Bokmål',
@@ -24,7 +24,10 @@ export function LanguageDropdown() {
 
   return (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger className={styles.utilityButton} onClick={() => setOpen(!open)}>
+      <Dropdown.Trigger
+        className={styles.utilityButton}
+        onClick={() => setOpen(!open)}
+      >
         <EarthIcon />
       </Dropdown.Trigger>
       <Dropdown open={open} onClose={() => setOpen(false)}>

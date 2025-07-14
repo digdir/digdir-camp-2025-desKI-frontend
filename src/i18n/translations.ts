@@ -24,7 +24,6 @@ export const en = {
   ],
 };
 
-
 /**
  * Norsk bokmål translations
  */
@@ -56,7 +55,7 @@ export const nn = {
   [KEY.chat_placeholder]: 'Spør eit spørsmål her...',
   [KEY.chatbot_welcome]: 'Kva lurer du på?',
   [KEY.initial_welcome]: 'Hei, kva løysing vil du ha hjelp med i dag?',
-  
+
   [KEY.solutions_list]: [
     'ID-porten',
     'Maskinporten',

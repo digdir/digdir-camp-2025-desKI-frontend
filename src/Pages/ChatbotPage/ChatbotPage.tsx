@@ -1,12 +1,12 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
 import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
-import styles from './ChatbotPage.module.css';
-import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
+import styles from './ChatbotPage.module.css';
 
 type Message = {
   sender: 'user' | 'bot';

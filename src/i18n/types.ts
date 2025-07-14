@@ -4,9 +4,8 @@ export type TranslationKeys = keyof typeof KEY;
 
 export const LANGUAGES = {
   NB: 'nb',
-  EN: 'en',
   NN: 'nn',
+  EN: 'en',
 } as const;
 
-export type Language = typeof LANGUAGES[keyof typeof LANGUAGES];
-
+export type Language = (typeof LANGUAGES)[keyof typeof LANGUAGES];

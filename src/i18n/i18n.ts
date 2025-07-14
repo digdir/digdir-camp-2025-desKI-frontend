@@ -9,7 +9,7 @@ export const defaultNS = 'common';
 export const resources = {
   [LANGUAGES.NB]: { [defaultNS]: nb },
   [LANGUAGES.EN]: { [defaultNS]: en },
-  [LANGUAGES.NN]: { [defaultNS]: nn }, 
+  [LANGUAGES.NN]: { [defaultNS]: nn },
 };
 
 /**

@@ -1,7 +1,9 @@
 import { Card } from '@digdir/designsystemet-react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
+import { KEY } from '~/i18n/constants';
 import styles from './StartPage.module.css';
 
 /**
@@ -9,13 +11,12 @@ import styles from './StartPage.module.css';
  * Clicking a card routes to the chatbot page with the selected solution.
  */
 export function StartPage() {
+  const { t } = useTranslation();
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
         <Logo />
-        <h2 className={styles.headerQuestion}>
-          Hei, hvilken løsning vil du ha hjelp med i dag?
-        </h2>
+        <h2 className={styles.headerQuestion}>{t(KEY.initial_welcome)}</h2>
       </div>
       <div className={styles.cardContainer}>
         {solutions.map((title) => (

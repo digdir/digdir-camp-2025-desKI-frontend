@@ -15,3 +15,11 @@ export const nb = {
   [KEY.language]: 'Språk',
   [KEY.initial_welcome]: 'Hei, hvilken løsning vil du ha hjelp med i dag?',
 };
+
+/**
+ * Norsk nynorsk translations
+ */
+export const nn = {
+  [KEY.language]: 'Språk',
+  [KEY.initial_welcome]: 'Hei, kva løysing vil du ha hjelp med i dag?',
+};

@@ -1,5 +1,9 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
-import { CameraIcon, ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import {
+  CameraIcon,
+  ChevronDownIcon,
+  PaperplaneIcon,
+} from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Chats } from '~/components/Chats/Chats';
@@ -7,8 +11,6 @@ import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
 import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import styles from './ChatbotPage.module.css';
-
-
 
 type Message = {
   sender: 'user' | 'bot';
@@ -47,7 +49,7 @@ export function ChatbotPage() {
     setInputValue('');
     setUploadedImages([]);
     setImageError(null);
-    
+
     setLoading(true);
 
     setTimeout(() => {
@@ -78,7 +80,7 @@ export function ChatbotPage() {
   function handleRemoveImage(index: number) {
     setUploadedImages((prev) => prev.filter((_, i) => i !== index));
   }
-  
+
   // Scrolls to the latest message when the message list updates.
   // biome-ignore lint/correctness/useExhaustiveDependencies: Needed to scroll on message update
   useEffect(() => {
@@ -102,7 +104,10 @@ export function ChatbotPage() {
           <Dropdown open={open} onClose={() => setOpen(false)}>
             <Dropdown.List>
               {solutions.map((solution) => (
-                <Dropdown.Button key={solution} className={styles.dropdownButton}>
+                <Dropdown.Button
+                  key={solution}
+                  className={styles.dropdownButton}
+                >
                   {solution}
                 </Dropdown.Button>
               ))}
@@ -152,9 +157,7 @@ export function ChatbotPage() {
               </div>
             )}
 
-            {imageError && (
-              <p className={styles.imageError}>{imageError}</p>
-            )}
+            {imageError && <p className={styles.imageError}>{imageError}</p>}
 
             <div className={styles.inputWrapper}>
               <Input
@@ -172,7 +175,9 @@ export function ChatbotPage() {
                 ref={fileInputRef}
                 style={{ display: 'none' }}
               />
-              <CameraUploadButton onClick={() => fileInputRef.current?.click()} />
+              <CameraUploadButton
+                onClick={() => fileInputRef.current?.click()}
+              />
               <Button
                 className={styles.sendButton}
                 variant="primary"

@@ -178,7 +178,7 @@
 }
 
 .imageError {
-  color: var( --ds-color-danger-base-default);
+  color: var(--ds-color-danger-base-default);
   font-size: 0.9rem;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;

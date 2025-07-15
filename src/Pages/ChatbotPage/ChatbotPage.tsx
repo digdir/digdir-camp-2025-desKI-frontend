@@ -112,7 +112,11 @@ export function ChatbotPage() {
             >
               <PaperplaneIcon className={styles.paper} />
             </Button>
+            <div className={styles.helperText}>
+          Chatboten kan gjøre feil. Kontakt Dekkservice på <a href="mailto:kontakt@dekkservice.no">kontakt@dekkservice.no</a> hvis du trenger mer hjelp.
+        </div>
           </div>
+          
         </div>
       </div>
     </div>

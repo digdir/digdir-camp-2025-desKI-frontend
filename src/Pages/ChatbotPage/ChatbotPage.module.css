@@ -7,6 +7,7 @@
   width: 100%;
   gap: 50px;
   align-items: center;
+  background-color: var(--ds-color-neutral-background-tinted);
 }
 
 .headerContainer {
@@ -78,14 +79,15 @@
 
 .sendContainer {
   position: sticky;
-  bottom: 1rem;
-  width: 77%;
+  bottom: 0;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 20px;
   gap: 10px;
+  background-color: var(--ds-color-neutral-background-tinted);
 }
 
 .atBottom {
@@ -117,7 +119,7 @@
 
 .sendButton {
   position: absolute;
-  top: 50%;
+  top: 30%;
   right: 0.5rem;
   transform: translateY(-50%);
   height: 70%;
@@ -137,3 +139,67 @@
   border: none;
   background-color: var(--ds-color-brand2-base-hover);
 }
+
+.helperText {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .headerContainer {
+    margin-left: 4rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dropdownTrigger {
+    margin-top: 0;
+  }
+
+  .sendContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    padding: 0 1rem;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .chatContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .sendButton {
+    height: 2rem;
+  }
+
+  .input {
+    padding: 0.75rem;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdownTrigger {
+    font-size: 0.9rem;
+  }
+
+  .helperText {
+    font-size: 0.65rem;
+  }
+
+  .sendContainer {
+    padding: 0.5rem;
+  }
+}
+

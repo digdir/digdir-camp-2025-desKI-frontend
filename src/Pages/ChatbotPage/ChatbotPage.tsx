@@ -1,10 +1,11 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
 import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
-import { solutions } from '~/data/solutions';
+import { KEY } from '~/i18n/constants';
 import styles from './ChatbotPage.module.css';
 
 type Message = {
@@ -17,6 +18,8 @@ type Message = {
  * Handles input, dropdown solution selection, chat message rendering, and auto-scrolling.
  */
 export function ChatbotPage() {
+  const { t } = useTranslation();
+  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
@@ -90,7 +93,7 @@ export function ChatbotPage() {
           <div ref={bottomRef} />
         </div>
         {isFirstMessage && (
-          <h2 className={styles.introText}>Hva lurer du på?</h2>
+          <h2 className={styles.introText}>{t(KEY.chatbot_welcome)}</h2>
         )}
         <div
           className={`${styles.sendContainer} ${
@@ -99,7 +102,7 @@ export function ChatbotPage() {
         >
           <div className={styles.inputWrapper}>
             <Input
-              placeholder="Spør et spørsmål"
+              placeholder={t(KEY.chat_placeholder)}
               className={styles.input}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}

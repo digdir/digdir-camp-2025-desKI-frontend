@@ -71,3 +71,26 @@ export const nn = {
     'Anna',
   ],
 };
+
+/**
+ * Nothern Sami translations
+ */
+export const ns = {
+  [KEY.chat_placeholder]: 'Jeara gažaldaga dás...',
+  [KEY.chatbot_welcome]: 'Man birra imaštalat?',
+  [KEY.initial_welcome]: 'Hei, makkár čovdosiin don háliidat veahki odne?',
+  [KEY.solutions_list]: [
+    'ID-porten',
+    'Maskinporten',
+    'eFormidling',
+    'eSignering',
+    'Kontakt- og reservasjonsregistera',
+    'Digital postkasse til Innbyggere',
+    'eInnsyn',
+    'ELMA',
+    'Ansattporten',
+    'Peppol eGovernment',
+    'Digital lommebok',
+    'eará',
+  ],
+};

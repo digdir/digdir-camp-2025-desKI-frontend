@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { en, nb, nn } from './translations';
+import { en, nb, nn, ns } from './translations';
 import { LANGUAGES } from './types';
 
 export const LOCALSTORAGE_KEY = 'language';
@@ -10,6 +10,7 @@ export const resources = {
   [LANGUAGES.NB]: { [defaultNS]: nb },
   [LANGUAGES.EN]: { [defaultNS]: en },
   [LANGUAGES.NN]: { [defaultNS]: nn },
+  [LANGUAGES.NS]: { [defaultNS]: ns },
 };
 
 /**

@@ -6,6 +6,7 @@ export const LANGUAGES = {
   NB: 'nb',
   NN: 'nn',
   EN: 'en',
+  NS: 'ns',
 } as const;
 
 export type Language = (typeof LANGUAGES)[keyof typeof LANGUAGES];

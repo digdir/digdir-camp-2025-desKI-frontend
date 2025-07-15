@@ -10,6 +10,7 @@ const languageLabels: Record<Language, string> = {
   nb: 'Bokmål',
   nn: 'Nynorsk',
   en: 'English',
+  ns: 'Davvisámegiella',
 };
 
 export function LanguageDropdown() {

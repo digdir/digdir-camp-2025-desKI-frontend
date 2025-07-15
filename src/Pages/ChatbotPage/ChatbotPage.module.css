@@ -174,11 +174,11 @@
   height: 80px;
   object-fit: cover;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
 }
 
 .imageError {
-  color: red;
+  color: var( --ds-color-danger-base-default);
   font-size: 0.9rem;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
@@ -195,7 +195,7 @@
   width: 100px;
   height: auto;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
 }
 
 .removeImageButton {

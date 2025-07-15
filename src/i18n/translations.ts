@@ -23,10 +23,16 @@ export const en = {
     'Other',
   ],
 
+  // ==================== //
+  //      UtilityBar      //
+  // ==================== //
   // Color mode
   [KEY.theme_toggle]: 'Switch to {{theme}} mode',
   [KEY.theme_dark]: 'dark',
   [KEY.theme_light]: 'light',
+
+  // Language
+  [KEY.language_switch]: 'Switch language',
 };
 
 /**
@@ -52,10 +58,16 @@ export const nb = {
     'Annet',
   ],
 
+  // ==================== //
+  //      UtilityBar      //
+  // ==================== //
   // Color mode
   [KEY.theme_toggle]: 'Bytt til {{theme}} modus',
   [KEY.theme_dark]: 'mørk',
   [KEY.theme_light]: 'lys',
+
+  // Language
+  [KEY.language_switch]: 'Bytt språk',
 };
 
 /**
@@ -81,11 +93,16 @@ export const nn = {
     'Anna',
   ],
 
+  // ==================== //
+  //      UtilityBar      //
+  // ==================== //
   //Color mode
-
   [KEY.theme_toggle]: 'Bytt til {{theme}} modus',
   [KEY.theme_dark]: 'mørk',
   [KEY.theme_light]: 'lys',
+
+  // Language
+  [KEY.language_switch]: 'Bytt språk',
 };
 
 /**
@@ -110,8 +127,14 @@ export const ns = {
     'eará',
   ],
 
+  // ==================== //
+  //      UtilityBar      //
+  // ==================== //
   // Color mode
   [KEY.theme_toggle]: 'Rievdat {{theme}} dihtii',
   [KEY.theme_dark]: 'čáhppes',
   [KEY.theme_light]: 'čuovgat',
+
+  // Language
+  [KEY.language_switch]: 'Molsso giela',
 };

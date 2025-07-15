@@ -22,6 +22,11 @@ export const en = {
     'Digital lommebok',
     'Other',
   ],
+
+  // Color mode
+  [KEY.theme_toggle]: 'Switch to {{theme}} mode',
+  [KEY.theme_dark]: 'dark',
+  [KEY.theme_light]: 'light',
 };
 
 /**
@@ -46,6 +51,11 @@ export const nb = {
     'Digital lommebok',
     'Annet',
   ],
+
+  // Color mode
+  [KEY.theme_toggle]: 'Bytt til {{theme}} modus',
+  [KEY.theme_dark]: 'mørk',
+  [KEY.theme_light]: 'lys',
 };
 
 /**
@@ -70,6 +80,12 @@ export const nn = {
     'Digital lommebok',
     'Anna',
   ],
+
+  //Color mode
+
+  [KEY.theme_toggle]: 'Bytt til {{theme}} modus',
+  [KEY.theme_dark]: 'mørk',
+  [KEY.theme_light]: 'lys',
 };
 
 /**
@@ -93,4 +109,9 @@ export const ns = {
     'Digital lommebok',
     'eará',
   ],
+
+  // Color mode
+  [KEY.theme_toggle]: 'Rievdat {{theme}} dihtii',
+  [KEY.theme_dark]: 'čáhppes',
+  [KEY.theme_light]: 'čuovgat',
 };

@@ -1,15 +1,11 @@
 import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
-import {
-  CameraIcon,
-  ChevronDownIcon,
-  PaperplaneIcon,
-} from '@navikt/aksel-icons';
+import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
-import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import styles from './ChatbotPage.module.css';
 
 type Message = {
@@ -149,6 +145,7 @@ export function ChatbotPage() {
                       className={styles.removeImageButton}
                       onClick={() => handleRemoveImage(index)}
                       aria-label={`Fjern bilde ${index + 1}`}
+                      type="button"
                     >
                       ✖
                     </button>

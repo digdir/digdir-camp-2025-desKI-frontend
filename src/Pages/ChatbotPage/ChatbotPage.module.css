@@ -139,22 +139,6 @@
   border: none;
   color: var(--ds-color-neutral-text-subtle);
 }
-.cameraButton {
-  position: absolute;
-  top: 50%;
-  right: 4rem;
-  transform: translateY(-50%);
-  height: 70%;
-  border-radius: 50%;
-  background-color: var(--ds-color-warning-base-default);
-  display: flex;
-  padding: 0;
-}
-.cameraButton:hover {
-  outline: none;
-  border: none;
-  background-color: var(--ds-color-brand2-base-hover);
-}
 
 .previewImage {
   max-width: 100px;

@@ -5,7 +5,10 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
 import { solutions } from '~/data/solutions';
+import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import styles from './ChatbotPage.module.css';
+
+
 
 type Message = {
   sender: 'user' | 'bot';
@@ -169,13 +172,7 @@ export function ChatbotPage() {
                 ref={fileInputRef}
                 style={{ display: 'none' }}
               />
-              <Button
-                className={styles.cameraButton}
-                variant="secondary"
-                onClick={() => fileInputRef.current?.click()}
-              >
-                <CameraIcon aria-label="Last opp bilde" />
-              </Button>
+              <CameraUploadButton onClick={() => fileInputRef.current?.click()} />
               <Button
                 className={styles.sendButton}
                 variant="primary"

@@ -1,0 +1,20 @@
+.cameraButton {
+  position: absolute;
+  top: 50%;
+  right: 3rem;
+  transform: translateY(-50%);
+  height: 70%;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  background-color: transparent;
+  padding: 0;
+}
+.cameraButton:hover {
+  outline: none;
+  border: none;
+}
+.cameraButton svg {
+  color: black;
+  fill: black;
+}

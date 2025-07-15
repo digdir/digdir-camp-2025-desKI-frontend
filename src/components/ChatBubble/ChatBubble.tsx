@@ -37,20 +37,21 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
           <div className={styles.imageGrid}>
             {imageUrls.map((url, index) => (
               <button
-                key={index}
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openImageFullscreen(url);
-                }}
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={url}
-                  alt={`Bilde ${index + 1}`}
-                  className={styles.chatImage}
-                />
-              </button>
+                  key={index}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openImageFullscreen(url);
+                  }}
+                  className={styles.unstyledButton}
+                >
+                  <img
+                    src={url}
+                    alt={`Bilde ${index + 1}`}
+                    className={styles.chatImage}
+                  />
+                </button>
+
             ))}
           </div>
         )}

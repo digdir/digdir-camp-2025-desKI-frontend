@@ -69,17 +69,12 @@
   margin-top: 10%;
 }
 
-.messagesContainer {
-  width: 80%;
-  padding-bottom: 140px;
-}
-
 .introText {
   font-weight: 500;
 }
 
 .sendContainer {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 70%;
   display: flex;
@@ -97,7 +92,6 @@
 .inputWrapper {
   position: relative;
   width: 100%;
-  max-width: 70rem;
   height: 100%;
 }
 
@@ -119,7 +113,7 @@
 
 .sendButton {
   position: absolute;
-  top: 35%;
+  top: 50%;
   right: 0.5rem;
   transform: translateY(-50%);
   height: 70%;
@@ -146,6 +140,7 @@
   color: #6b6b6b;
   text-align: center;
 }
+
 
 /* Media Queries */
 @media (max-width: 1024px) {

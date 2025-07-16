@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styles from './ChatBubble.module.css';
+import { useTranslation } from 'react-i18next';
+import { KEY } from '~/i18n/constants';
 
 type Props = {
   message: string;
@@ -16,6 +18,7 @@ type Props = {
  * @param imageUrls - Optional list of image URLs to show in the bubble.
  */
 export function ChatBubble({ message, sender, imageUrls }: Props) {
+  const { t } = useTranslation();
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   function openImageFullscreen(url: string) {
@@ -70,7 +73,7 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
           <button
             className={styles.closeButton}
             onClick={closeFullscreen}
-            aria-label="Lukk bilde"
+            aria-label={t(KEY.close_image)}
             type="button"
           >
             ✕

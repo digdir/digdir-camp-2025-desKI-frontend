@@ -147,7 +147,7 @@ export function ChatbotPage() {
                     <button
                       className={styles.removeImageButton}
                       onClick={() => handleRemoveImage(index)}
-                      aria-label={`Fjern bilde ${index + 1}`}
+                      aria-label={`${t(KEY.remove_image)} ${index + 1}`}
                       type="button"
                     >
                       ✖

@@ -4,7 +4,6 @@ import { KEY } from './constants';
  * English translations
  */
 export const en = {
-  [KEY.chat_placeholder]: 'Ask a question here...',
   [KEY.chatbot_welcome]: 'What would you like to know?',
   [KEY.initial_welcome]: 'Hi, which solution can I help you with today?',
 
@@ -24,6 +23,13 @@ export const en = {
   ],
 
   // ==================== //
+  //      Chat area       //
+  // ==================== //
+  [KEY.chat_placeholder]: 'Ask a question here...',
+  [KEY.send_button]: 'Send',
+  [KEY.upload_image]: 'Upload image',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   // Color mode
@@ -39,7 +45,6 @@ export const en = {
  * Norsk bokmål translations
  */
 export const nb = {
-  [KEY.chat_placeholder]: 'Spør et spørsmål her...',
   [KEY.chatbot_welcome]: 'Hva lurer du på?',
   [KEY.initial_welcome]: 'Hei, hvilken løsning vil du ha hjelp med i dag?',
 
@@ -59,6 +64,13 @@ export const nb = {
   ],
 
   // ==================== //
+  //      Chat area       //
+  // ==================== //
+  [KEY.chat_placeholder]: 'Spør et spørsmål her...',
+  [KEY.send_button]: 'Send',
+  [KEY.upload_image]: 'Last opp bilde',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   // Color mode
@@ -74,7 +86,6 @@ export const nb = {
  * Norsk nynorsk translations
  */
 export const nn = {
-  [KEY.chat_placeholder]: 'Spør eit spørsmål her...',
   [KEY.chatbot_welcome]: 'Kva lurer du på?',
   [KEY.initial_welcome]: 'Hei, kva løysing vil du ha hjelp med i dag?',
 
@@ -94,6 +105,13 @@ export const nn = {
   ],
 
   // ==================== //
+  //      Chat area       //
+  // ==================== //
+  [KEY.chat_placeholder]: 'Spør eit spørsmål her...',
+  [KEY.send_button]: 'Send',
+  [KEY.upload_image]: 'Last opp bilde',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   //Color mode
@@ -109,7 +127,6 @@ export const nn = {
  * Nothern Sami translations
  */
 export const ns = {
-  [KEY.chat_placeholder]: 'Jeara gažaldaga dás...',
   [KEY.chatbot_welcome]: 'Man birra imaštalat?',
   [KEY.initial_welcome]: 'Hei, makkár čovdosiin don háliidat veahki odne?',
   [KEY.solutions_list]: [
@@ -126,6 +143,13 @@ export const ns = {
     'Digital lommebok',
     'eará',
   ],
+
+  // ==================== //
+  //      Chat area       //
+  // ==================== //
+  [KEY.chat_placeholder]: 'Jeara gažaldaga dás...',
+  [KEY.send_button]: 'Sádde',
+  [KEY.upload_image]: 'Sádde gova',
 
   // ==================== //
   //      UtilityBar      //

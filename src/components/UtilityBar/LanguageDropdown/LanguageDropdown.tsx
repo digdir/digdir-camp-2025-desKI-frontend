@@ -2,10 +2,10 @@ import { Dropdown, Tooltip } from '@digdir/designsystemet-react';
 import { EarthIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { KEY } from '~/i18n/constants';
 import { LOCALSTORAGE_KEY } from '~/i18n/i18n';
 import { LANGUAGES, type Language } from '~/i18n/types';
 import styles from '../UtilityBar.module.css';
-import { KEY } from '~/i18n/constants';
 
 const languageLabels: Record<Language, string> = {
   nb: 'Bokmål',

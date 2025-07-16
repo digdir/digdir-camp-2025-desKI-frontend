@@ -34,5 +34,4 @@ export const KEY = {
   go_to_homepage: 'go_to_homepage',
   remove_image: 'remove_image',
   select_solution: 'select_solution',
-
 } as const;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import styles from './ChatBubble.module.css';
 import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
+import styles from './ChatBubble.module.css';
 
 type Props = {
   message: string;

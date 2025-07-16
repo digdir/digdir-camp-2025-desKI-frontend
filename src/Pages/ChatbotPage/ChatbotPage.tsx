@@ -89,7 +89,11 @@ export function ChatbotPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <Link to="/" className={styles.logoLink} aria-label={t(KEY.go_to_homepage)}>
+        <Link
+          to="/"
+          className={styles.logoLink}
+          aria-label={t(KEY.go_to_homepage)}
+        >
           <Logo />
         </Link>
         <Dropdown.TriggerContext>

@@ -1,23 +1,87 @@
+import { useState } from 'react';
 import styles from './ChatBubble.module.css';
 
 type Props = {
   message: string;
   sender: 'user' | 'bot';
+  imageUrls?: string[];
 };
 
 /**
- * Renders a single chat bubble styled according to the sender (user or bot).
+ * Renders a single chat bubble styled according to the sender (user or bot),
+ * including optional images. Images are displayed first and can be opened in full screen.
  *
  * @param message - The text content of the message.
  * @param sender - Who sent the message ('user' or 'bot').
+ * @param imageUrls - Optional list of image URLs to show in the bubble.
  */
-export function ChatBubble({ message, sender }: Props) {
+export function ChatBubble({ message, sender, imageUrls }: Props) {
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
+  function openImageFullscreen(url: string) {
+    setFullscreenImage(url);
+  }
+
+  function closeFullscreen() {
+    setFullscreenImage(null);
+  }
+
   return (
-    <div
-      className={sender === 'user' ? styles.userBubble : styles.botBubble}
-      data-color="support"
-    >
-      {message}
-    </div>
+    <>
+      <div
+        className={`${styles.bubbleWrapper} ${
+          sender === 'user' ? styles.alignRight : styles.alignLeft
+        }`}
+      >
+        {Array.isArray(imageUrls) && imageUrls.length > 0 && (
+          <div className={styles.imageGrid}>
+            {imageUrls.map((url, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openImageFullscreen(url);
+                }}
+                className={styles.unstyledButton}
+              >
+                <img
+                  src={url}
+                  alt={`Bilde ${index + 1}`}
+                  className={styles.chatImage}
+                />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {message.trim() !== '' && (
+          <div
+            className={sender === 'user' ? styles.userBubble : styles.botBubble}
+            data-color="support"
+          >
+            <p>{message}</p>
+          </div>
+        )}
+      </div>
+
+      {fullscreenImage && (
+        <div className={styles.fullscreenOverlay}>
+          <button
+            className={styles.closeButton}
+            onClick={closeFullscreen}
+            aria-label="Lukk bilde"
+            type="button"
+          >
+            ✕
+          </button>
+          <img
+            src={fullscreenImage}
+            className={styles.fullscreenImage}
+            alt="Fullskjerm bilde"
+          />
+        </div>
+      )}
+    </>
   );
 }

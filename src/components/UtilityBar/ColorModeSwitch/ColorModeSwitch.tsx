@@ -31,6 +31,7 @@ export default function ColorModeSwitch() {
         variant="tertiary"
         className={styles.utilityButton}
         onClick={toggleColorMode}
+        aria-label={tooltipText}
       >
         {icon}
       </Button>

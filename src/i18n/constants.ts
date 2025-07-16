@@ -12,7 +12,7 @@ export const KEY = {
   //      Chat area       //
   // ==================== //
   chat_placeholder: 'chat_placeholder',
-  send_button: 'send_button',
+  send: 'send',
   upload_image: 'upload_image',
 
   // ==================== //
@@ -25,4 +25,13 @@ export const KEY = {
 
   // Language
   language_switch: 'language_switch',
+
+  // ==================== //
+  //        Labels        //
+  // ==================== //
+  close_image: 'close_image',
+  display_image_fullscreen: 'display_image_fullscreen',
+  go_to_homepage: 'go_to_homepage',
+  remove_image: 'remove_image',
+  select_solution: 'select_solution',
 } as const;

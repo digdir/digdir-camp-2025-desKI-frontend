@@ -47,6 +47,7 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
                   openImageFullscreen(url);
                 }}
                 className={styles.unstyledButton}
+                aria-label={t(KEY.display_image_fullscreen)}
               >
                 <img
                   src={url}

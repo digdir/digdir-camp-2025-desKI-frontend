@@ -178,7 +178,7 @@ export function ChatbotPage() {
               <CameraUploadButton
                 onClick={() => fileInputRef.current?.click()}
               />
-              <Tooltip content={''}>
+              <Tooltip content={t(KEY.send_button)} placement="bottom">
                 <Button
                   className={styles.sendButton}
                   variant="primary"

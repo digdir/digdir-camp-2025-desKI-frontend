@@ -18,7 +18,10 @@ export function ServicedeskStartPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <Logo />
+        <div className={styles.logoContainer}>
+          <Logo />
+          <div className={styles.serviceType}>Servicedesk</div>
+        </div>
         <h2 className={styles.headerQuestion}>
           {t(KEY.initial_welcome_servicedesk)}
         </h2>

@@ -14,7 +14,10 @@ export function BrukerstotteStartPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <Logo />
+        <div className={styles.logoContainer}>
+          <Logo />
+          <div className={styles.serviceType}>Brukerstøtte</div>
+        </div>
         <h2 className={styles.headerQuestion}>
           {t(KEY.initial_welcome_brukerstotte)}
         </h2>

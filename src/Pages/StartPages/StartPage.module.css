@@ -15,8 +15,16 @@
   width: 100%;
 }
 
-.logo {
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceType {
   position: relative;
+  right: 0;
+  padding-left: 11rem;
+  font-weight: 500;
 }
 
 .headerQuestion {

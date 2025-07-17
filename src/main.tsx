@@ -7,7 +7,7 @@ import './styles/common.css';
 import '@digdir/designsystemet-theme';
 import '@digdir/designsystemet-css';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './components/router/router.tsx';
+import { router } from './router/router.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Root element not found');

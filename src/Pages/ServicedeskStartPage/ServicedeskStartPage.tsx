@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
-import styles from './StartPage.module.css';
+import styles from './ServicedeskStartPage.module.css';
 
 /**
  * Displays the initial landing page where users choose a solution to get help with.
  * Clicking a card routes to the chatbot page with the selected solution.
  */
-export function StartPage() {
+export function ServicedeskStartPage() {
   const { t } = useTranslation();
   const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
 

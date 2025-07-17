@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import { ChatbotPage } from '~/Pages/ChatbotPage';
-import { StartPage } from '~/Pages/StartPage';
+import { ServicedeskStartPage } from '~/Pages/ServicedeskStartPage';
 import RootLayout, { clientLoader } from '~/root';
 import { clientAction } from '~/routes/settings';
 
@@ -16,7 +16,7 @@ export const router = createBrowserRouter(
       loader={clientLoader}
       action={clientAction}
     >
-      <Route index element={<StartPage />} />
+      <Route index element={<ServicedeskStartPage />} />
       <Route path="chatbot" element={<ChatbotPage />} />
     </Route>,
   ),

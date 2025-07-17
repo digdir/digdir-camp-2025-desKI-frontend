@@ -1,4 +1,4 @@
-import { Button, Dropdown, Input } from '@digdir/designsystemet-react';
+import { Button, Dropdown, Input, Tooltip } from '@digdir/designsystemet-react';
 import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -178,13 +178,15 @@ export function ChatbotPage() {
               <CameraUploadButton
                 onClick={() => fileInputRef.current?.click()}
               />
-              <Button
-                className={styles.sendButton}
-                variant="primary"
-                onClick={handleSend}
-              >
-                <PaperplaneIcon className={styles.paper} />
-              </Button>
+              <Tooltip content={t(KEY.send_button)} placement="bottom">
+                <Button
+                  className={styles.sendButton}
+                  variant="primary"
+                  onClick={handleSend}
+                >
+                  <PaperplaneIcon className={styles.paper} />
+                </Button>
+              </Tooltip>
             </div>
             <div className={styles.helperText}>
               Chatboten kan gjøre feil. Kontakt Dekkservice på{' '}

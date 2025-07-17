@@ -20,9 +20,12 @@ type Message = {
  * allows image uploads, and handles sending messages with or without images.
  */
 
-export function ChatbotPage() {
+type ChatbotPageProps = {
+  source: 'brukerstotte' | 'servicedesk';
+};
+
+export function ChatbotPage({ source }: ChatbotPageProps) {
   const { t } = useTranslation();
-  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [searchParams] = useSearchParams();
@@ -32,6 +35,13 @@ export function ChatbotPage() {
   const [imageError, setImageError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  const solutions = t(
+    source === 'servicedesk'
+      ? KEY.servicedesk_solutions_list
+      : KEY.brukerstotte_solutions_list,
+    { returnObjects: true },
+  ) as string[];
 
   const isFirstMessage = messages.length === 0;
 

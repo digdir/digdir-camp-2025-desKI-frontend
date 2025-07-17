@@ -3,7 +3,8 @@
  */
 export const KEY = {
   chatbot_welcome: 'chatbot_welcome',
-  initial_welcome: 'initial_welcome',
+  initial_welcome_servicedesk: 'initial_welcome_servicedesk',
+  initial_welcome_brukerstotte: 'initial_welcome_brukerstotte',
   language: 'language',
 
   servicedesk_solutions_list: 'servicedesk_solutions_list',

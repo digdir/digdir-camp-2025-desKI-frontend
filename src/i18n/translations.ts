@@ -5,7 +5,9 @@ import { KEY } from './constants';
  */
 export const en = {
   [KEY.chatbot_welcome]: 'What would you like to know?',
-  [KEY.initial_welcome]: 'Hi, which solution can I help you with today?',
+  [KEY.initial_welcome_servicedesk]:
+    'Hi, which solution can I help you with today?',
+  [KEY.initial_welcome_brukerstotte]: 'Hi, what can I help you with today?',
 
   [KEY.servicedesk_solutions_list]: [
     'ID-porten',
@@ -34,6 +36,7 @@ export const en = {
     'System error',
     'Security level eID',
     'Incident',
+    'Other',
   ],
 
   // ==================== //
@@ -60,7 +63,9 @@ export const en = {
  */
 export const nb = {
   [KEY.chatbot_welcome]: 'Hva lurer du på?',
-  [KEY.initial_welcome]: 'Hei, hvilken løsning vil du ha hjelp med i dag?',
+  [KEY.initial_welcome_servicedesk]:
+    'Hei, hvilken løsning vil du ha hjelp med i dag?',
+  [KEY.initial_welcome_brukerstotte]: 'Hei, hva kan jeg hjelpe deg med i dag?',
 
   [KEY.servicedesk_solutions_list]: [
     'ID-porten',
@@ -89,6 +94,7 @@ export const nb = {
     'Systemfeil',
     'Sikkerhetsnivå eID',
     'Hendelse',
+    'Annet',
   ],
 
   // ==================== //
@@ -115,7 +121,9 @@ export const nb = {
  */
 export const nn = {
   [KEY.chatbot_welcome]: 'Kva lurer du på?',
-  [KEY.initial_welcome]: 'Hei, kva løysing vil du ha hjelp med i dag?',
+  [KEY.initial_welcome_servicedesk]:
+    'Hei, kva løysing vil du ha hjelp med i dag?',
+  [KEY.initial_welcome_brukerstotte]: 'Hei, kva kan eg hjelpe deg med i dag?',
 
   [KEY.servicedesk_solutions_list]: [
     'ID-porten',
@@ -144,6 +152,7 @@ export const nn = {
     'Systemfeil',
     'Sikkerhetsnivå eID',
     'Hending',
+    'Anna',
   ],
 
   // ==================== //
@@ -170,7 +179,9 @@ export const nn = {
  */
 export const ns = {
   [KEY.chatbot_welcome]: 'Man birra imaštalat?',
-  [KEY.initial_welcome]: 'Hei, makkár čovdosiin don háliidat veahki odne?',
+  [KEY.initial_welcome_servicedesk]:
+    'Hei, makkár čovdosiin don háliidat veahki odne?',
+  [KEY.initial_welcome_brukerstotte]: 'Mo sáhtán don leat veahkkin odne?',
   [KEY.servicedesk_solutions_list]: [
     'ID-porten',
     'Maskinporten',
@@ -198,6 +209,7 @@ export const ns = {
     'Systemfeil',
     'Sikkerhetsnivå eID',
     'Hending',
+    'Eará',
   ],
 
   // ==================== //

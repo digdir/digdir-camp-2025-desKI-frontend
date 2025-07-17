@@ -15,13 +15,15 @@ export function BrukerstotteStartPage() {
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
         <Logo />
-        <h2 className={styles.headerQuestion}>{t(KEY.initial_welcome)}</h2>
+        <h2 className={styles.headerQuestion}>
+          {t(KEY.initial_welcome_brukerstotte)}
+        </h2>
       </div>
       <div className={styles.cardContainer}>
         {solutions.map((title) => (
           <Link
             key={title}
-            to={`/chatbot?solution=${title}`}
+            to={`/brukerstotte/chatbot?solution=${title}`}
             className={styles.cardLink}
           >
             <Card className={styles.solutionCard} variant="tinted">

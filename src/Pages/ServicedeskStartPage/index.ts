@@ -1,1 +1,0 @@
-export { ServicedeskStartPage } from './ServicedeskStartPage';

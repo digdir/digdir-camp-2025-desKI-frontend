@@ -7,7 +7,7 @@ export const en = {
   [KEY.chatbot_welcome]: 'What would you like to know?',
   [KEY.initial_welcome]: 'Hi, which solution can I help you with today?',
 
-  [KEY.solutions_list]: [
+  [KEY.servicedesk_solutions_list]: [
     'ID-porten',
     'Maskinporten',
     'eFormidling',
@@ -20,6 +20,20 @@ export const en = {
     'Peppol eGovernment',
     'Digital lommebok',
     'Other',
+  ],
+
+  [KEY.brukerstotte_solutions_list]: [
+    'BankId',
+    'Digital mailbox',
+    'eSignering',
+    'Wrong point of contact',
+    'KRR',
+    'MinID authentication',
+    'MinID forgotten password',
+    'MinID new user',
+    'System error',
+    'Security level eID',
+    'Incident',
   ],
 
   // ==================== //
@@ -48,7 +62,7 @@ export const nb = {
   [KEY.chatbot_welcome]: 'Hva lurer du på?',
   [KEY.initial_welcome]: 'Hei, hvilken løsning vil du ha hjelp med i dag?',
 
-  [KEY.solutions_list]: [
+  [KEY.servicedesk_solutions_list]: [
     'ID-porten',
     'Maskinporten',
     'eFormidling',
@@ -61,6 +75,20 @@ export const nb = {
     'Peppol eGovernment',
     'Digital lommebok',
     'Annet',
+  ],
+
+  [KEY.brukerstotte_solutions_list]: [
+    'BankId',
+    'Digital postkasse',
+    'eSignering',
+    'Feil kontaktpunkt',
+    'KRR',
+    'MinID autentisering',
+    'MinID glemt passord',
+    'MinID ny bruker',
+    'Systemfeil',
+    'Sikkerhetsnivå eID',
+    'Hendelse',
   ],
 
   // ==================== //
@@ -89,7 +117,7 @@ export const nn = {
   [KEY.chatbot_welcome]: 'Kva lurer du på?',
   [KEY.initial_welcome]: 'Hei, kva løysing vil du ha hjelp med i dag?',
 
-  [KEY.solutions_list]: [
+  [KEY.servicedesk_solutions_list]: [
     'ID-porten',
     'Maskinporten',
     'eFormidling',
@@ -102,6 +130,20 @@ export const nn = {
     'Peppol eGovernment',
     'Digital lommebok',
     'Anna',
+  ],
+
+  [KEY.brukerstotte_solutions_list]: [
+    'BankId',
+    'Digital postkasse',
+    'eSignering',
+    'Feil kontaktpunkt',
+    'KRR',
+    'MinID autentisering',
+    'MinID gløymd passord',
+    'MinID ny brukar',
+    'Systemfeil',
+    'Sikkerhetsnivå eID',
+    'Hending',
   ],
 
   // ==================== //
@@ -129,7 +171,7 @@ export const nn = {
 export const ns = {
   [KEY.chatbot_welcome]: 'Man birra imaštalat?',
   [KEY.initial_welcome]: 'Hei, makkár čovdosiin don háliidat veahki odne?',
-  [KEY.solutions_list]: [
+  [KEY.servicedesk_solutions_list]: [
     'ID-porten',
     'Maskinporten',
     'eFormidling',
@@ -142,6 +184,20 @@ export const ns = {
     'Peppol eGovernment',
     'Digital lommebok',
     'eará',
+  ],
+
+  [KEY.brukerstotte_solutions_list]: [
+    'BankId',
+    'Digital postkasse',
+    'eSignering',
+    'Feil kontaktpunkt',
+    'KRR',
+    'MinID autentisering',
+    'MinID gløymd passord',
+    'MinID ny brukar',
+    'Systemfeil',
+    'Sikkerhetsnivå eID',
+    'Hending',
   ],
 
   // ==================== //

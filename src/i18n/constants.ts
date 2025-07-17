@@ -6,7 +6,8 @@ export const KEY = {
   initial_welcome: 'initial_welcome',
   language: 'language',
 
-  solutions_list: 'solutions_list',
+  servicedesk_solutions_list: 'servicedesk_solutions_list',
+  brukerstotte_solutions_list: 'brukerstotte_solutions_list',
 
   // ==================== //
   //      Chat area       //

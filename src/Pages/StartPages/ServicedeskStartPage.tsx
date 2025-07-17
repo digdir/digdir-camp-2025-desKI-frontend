@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
-import styles from './ServicedeskStartPage.module.css';
+import styles from './StartPage.module.css';
 
 /**
  * Displays the initial landing page where users choose a solution to get help with.
@@ -11,7 +11,9 @@ import styles from './ServicedeskStartPage.module.css';
  */
 export function ServicedeskStartPage() {
   const { t } = useTranslation();
-  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
+  const solutions = t(KEY.servicedesk_solutions_list, {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <div className={styles.mainContainer}>

@@ -189,9 +189,9 @@ export function ChatbotPage() {
               </Tooltip>
             </div>
             <div className={styles.helperText}>
-              Chatboten kan gjøre feil. Kontakt Dekkservice på{' '}
-              <a href="mailto:kontakt@dekkservice.no">kontakt@dekkservice.no</a>{' '}
-              hvis du trenger mer hjelp.
+              Chatboten kan gjøre feil. Kontakt Service Desk på &nbsp;
+              <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>{' '}
+              &nbsp; hvis du trenger mer hjelp.
             </div>
           </div>
         </div>

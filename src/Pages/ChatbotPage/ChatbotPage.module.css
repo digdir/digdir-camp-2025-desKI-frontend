@@ -3,11 +3,14 @@
   top: 0px;
   display: flex;
   flex-direction: column;
+  padding-top: 7;
+  z-index: 1;
   min-height: 100vh;
   width: 100%;
   gap: 50px;
   align-items: center;
   background-color: var(--ds-color-neutral-background-tinted);
+  overflow: hidden;
 }
 
 .headerContainer {
@@ -18,11 +21,15 @@
   align-items: center;
   gap: 20px;
   margin: 30px;
-  margin-left: 10rem;
+  z-index: 1000;
+  margin: 0;
+  padding-left: 40px;
+  background-color: var(--ds-color-neutral-background-tinted);
 }
 
 .logoLink {
   cursor: pointer;
+  padding-top: 10px;
 }
 
 .dropdownTrigger {
@@ -63,6 +70,7 @@
   height: 100%;
   max-width: 70rem;
   width: 100%;
+  z-index: 100;
 }
 
 .chatContainerCentered {
@@ -79,12 +87,14 @@
   width: 70%;
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 0;
   background-color: var(--ds-color-neutral-background-tinted);
   z-index: 100;
+  margin: 0;
 }
 
 .atBottom {
+  position: fixed;
   margin-top: auto;
   align-self: center;
 }
@@ -93,6 +103,11 @@
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.messagesContainer {
+  width: 80%;
+  margin-bottom: 70px;
 }
 
 .input {
@@ -217,11 +232,16 @@
 }
 
 .helperText {
-  margin-top: 0.5rem;
   font-size: 0.75rem;
-  color: #6b6b6b;
+  color: var(--ds-color-neutral-border-default #7c8289);
+  width: 100%;
   text-align: center;
-  margin-left: 95px;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 /* Media Queries */
@@ -239,6 +259,29 @@
 
   .sendContainer {
     padding: 1rem;
+    width: 60%;
+  }
+}
+
+@media (min-width: 766px) and (max-width: 1314px) {
+  .sendContainer {
+    bottom: 0;
+    width: 85%;
+    padding: 0.75rem 1rem;
+  }
+
+  .sendAreaWrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .inputWrapper {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .input {
+    flex: 1;
   }
 }
 
@@ -246,18 +289,19 @@
   .headerContainer {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
     gap: 0.5rem;
   }
 
   .logoLink img {
     max-width: 140px;
     height: auto;
-    margin: 0;
+    margin-left: 20px;
   }
 
   .dropdownTrigger {
-    margin-left: 0;
+    margin-left: 20px;
     margin-top: 0;
     padding-left: 0.2rem;
   }
@@ -272,6 +316,10 @@
   .chatContainer {
     padding-top: 9rem;
   }
+
+  .sendContainer {
+    width: 80%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -279,19 +327,15 @@
     font-size: 0.9rem;
   }
 
-  .helperText {
-    font-size: 0.5rem;
-    text-align: center;
+  .chatStarted .sendContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    margin-left: 0;
-  }
-
-  .sendContainer {
-    padding: 0.5rem;
-    position: relative;
-    bottom: unset;
-    margin-top: 1rem;
-    width: 80%;
+    padding: 0;
+    background-color: var(--ds-color-neutral-background-tinted);
+    z-index: 100;
+    padding-bottom: 0;
   }
 
   .introText {
@@ -303,8 +347,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem 1rem;
-    min-height: 80vh;
+    padding: 8rem;
+    min-height: 50vh;
   }
 
   .inputWrapper {
@@ -318,14 +362,69 @@
   .logoLink img {
     max-width: 160px;
     height: auto;
+    margin-left: 2px;
   }
 
   .headerContainer {
+    display: flex;
+    position: fixed;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0;
     gap: 0.5rem;
     margin-left: 70px;
-    margin-top: -3px;
+  }
+
+  .messagesContainer {
+    width: 80%;
+    margin-bottom: -25px;
+  }
+
+  .input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .introText {
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+
+  .sendContainer {
+    bottom: 0;
+    padding: 0;
+    width: 85%;
+  }
+}
+/* Ekstra små skjermer – 249px og opp */
+@media (max-width: 320px) {
+  .sendContainer {
+    width: 85%;
+    padding: 0;
+    bottom: 0;
+  }
+
+  .sendAreaWrapper {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .inputWrapper {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+/* Mobil */
+@media (min-width: 321px) and (max-width: 480px) {
+  .sendContainer {
+    width: 85%;
+    padding: 0;
+    bottom: 0;
   }
 }

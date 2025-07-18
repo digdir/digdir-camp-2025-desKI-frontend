@@ -1,7 +1,7 @@
 .cameraButton {
   position: absolute;
   top: 50%;
-  right: 3rem;
+  right: 2.5rem;
   transform: translateY(-50%);
   height: 70%;
   border: none;

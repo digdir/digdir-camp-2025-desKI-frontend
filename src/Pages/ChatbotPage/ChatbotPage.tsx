@@ -7,6 +7,7 @@ import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
+import { sanitizeText } from '~/utils/sanitizeText';
 import styles from './ChatbotPage.module.css';
 
 type Message = {
@@ -35,15 +36,14 @@ export function ChatbotPage() {
 
   const isFirstMessage = messages.length === 0;
 
-  function handleSend() {
-    if (!inputValue.trim() && uploadedImages.length === 0) return;
+  async function handleSend() {
+    if (!inputValue.trim()) return;
 
     const userMessage: Message = {
       sender: 'user',
       text: inputValue,
-      imageUrls: uploadedImages,
+      imageUrls: uploadedImages.length > 0 ? uploadedImages : undefined,
     };
-
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setUploadedImages([]);
@@ -51,6 +51,24 @@ export function ChatbotPage() {
 
     setLoading(true);
 
+    // Sanitize message before sending to backend
+    const sanitizedMessage = sanitizeText(inputValue);
+
+    // Send sanitized message to backend
+    try {
+      await fetch('/api/save-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: sanitizedMessage,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to save message:', error);
+    }
+
+    // TODO: Replace with actual API call to desKI
     setTimeout(() => {
       const botReply: Message = {
         sender: 'bot',

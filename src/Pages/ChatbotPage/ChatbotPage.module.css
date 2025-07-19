@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  position: relative;
+  position: fixed;
   align-items: center;
   gap: 20px;
   margin: 30px;
@@ -57,7 +57,7 @@
   flex-direction: column;
   flex: 1;
   padding: 2rem;
-  padding-top: 0.5rem;
+  padding-top: 10rem;
   align-items: center;
   gap: 2rem;
   height: 100%;
@@ -73,14 +73,18 @@
   width: 80%;
 }
 
+.messagesContainer {
+  width: 80%;
+}
+
 .introText {
   font-weight: 500;
 }
 
 .sendContainer {
   position: sticky;
-  bottom: 1rem;
-  width: 77%;
+  bottom: 0;
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -136,5 +140,150 @@
 .sendButton:hover {
   outline: none;
   border: none;
-  background-color: var(--ds-color-brand2-base-hover);
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+.previewImage {
+  max-width: 100px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.inputWithImage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.imagePreviewInside {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.previewContainer {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.imagePreview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
+}
+
+.imageError {
+  color: var(--ds-color-danger-base-default);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.previewContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.imagePreviewAboveInput {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
+}
+
+.removeImageButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.sendAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.helperText {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .headerContainer {
+    margin-left: 4rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dropdownTrigger {
+    margin-top: 0;
+  }
+
+  .sendContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    padding: 0 1rem;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .chatContainer {
+    padding: 1rem 0.5rem;
+  }
+
+  .sendButton {
+    height: 2rem;
+  }
+
+  .input {
+    padding: 0.75rem;
+  }
+
+  .introText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdownTrigger {
+    font-size: 0.9rem;
+  }
+
+  .helperText {
+    font-size: 0.65rem;
+  }
+
+  .sendContainer {
+    padding: 0.5rem;
+  }
 }

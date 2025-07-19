@@ -6,6 +6,7 @@ import { logoLight } from '~/assets';
 import { Chats } from '~/components/Chats/Chats';
 import { solutions } from '~/data/solutions';
 import styles from './ChatbotPage.module.css';
+import { sanitizeText } from '~/utils/sanitizeText';
 
 type Message = {
   sender: 'user' | 'bot';
@@ -26,7 +27,7 @@ export function ChatbotPage() {
 
   const isFirstMessage = messages.length === 0;
 
-  function handleSend() {
+  async function handleSend() {
     if (!inputValue.trim()) return;
 
     const userMessage: Message = { sender: 'user', text: inputValue };
@@ -34,6 +35,23 @@ export function ChatbotPage() {
     setInputValue('');
 
     setLoading(true);
+
+    // Sanitize message before sending to backend
+    const sanitizedMessage = sanitizeText(inputValue);
+
+    // Send sanitized message to backend
+    try {
+      await fetch('/api/save-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: sanitizedMessage,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch (error) {
+      console.error('Failed to save message:', error);
+    }
 
     // TODO: Replace with actual API call to desKI
     setTimeout(() => {

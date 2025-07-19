@@ -7,8 +7,8 @@ import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
-import styles from './ChatbotPage.module.css';
 import { sanitizeText } from '~/utils/sanitizeText';
+import styles from './ChatbotPage.module.css';
 
 type Message = {
   sender: 'user' | 'bot';

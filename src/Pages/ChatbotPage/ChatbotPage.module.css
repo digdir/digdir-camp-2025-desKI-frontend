@@ -6,7 +6,6 @@
   min-height: 100vh;
   width: 100%;
   gap: 50px;
-  background-color: var(--ds-color-neutral-background-tinted);
   align-items: center;
 }
 
@@ -28,7 +27,7 @@
 .dropdownTrigger {
   color: var(--ds-color-main-text-default);
   margin-top: 30px;
-  background-color: var(--ds-color-neutral-background-tinted);
+  background-color: transparent;
   border: none;
 }
 
@@ -128,19 +127,104 @@
   height: 70%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background-color: var(--ds-color-warning-base-default);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: large;
   padding: 0;
   margin: 0;
+  color: var(--ds-color-neutral-text-default);
 }
 
 .sendButton:hover {
   outline: none;
   border: none;
   color: var(--ds-color-neutral-text-subtle);
+<<<<<<< HEAD
+=======
+}
+
+.previewImage {
+  max-width: 100px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.inputWithImage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.imagePreviewInside {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.previewContainer {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.imagePreview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
+}
+
+.imageError {
+  color: var(--ds-color-danger-base-default);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.previewContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.imagePreviewAboveInput {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
+}
+
+.removeImageButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.sendAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+>>>>>>> dev
 }
 
 .previewImage {

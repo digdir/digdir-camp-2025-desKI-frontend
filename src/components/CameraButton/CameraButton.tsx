@@ -16,8 +16,9 @@ export function CameraUploadButton({ onClick }: Props) {
         className={styles.cameraButton}
         variant="secondary"
         onClick={onClick}
+        aria-label={t(KEY.upload_image)}
       >
-        <CameraIcon aria-label={t(KEY.upload_image)} />
+        <CameraIcon />
       </Button>
     </Tooltip>
   );

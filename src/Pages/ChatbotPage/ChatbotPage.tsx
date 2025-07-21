@@ -54,7 +54,8 @@ export function ChatbotPage() {
     // Sanitize message before sending to backend
     const sanitizedMessage = sanitizeText(inputValue);
 
-    // Send sanitized message to backend
+    // Send sanitized message to backend. TODO: Replace with actual API call to desKI
+
     try {
       await fetch('/api/save-message', {
         method: 'POST',
@@ -68,7 +69,6 @@ export function ChatbotPage() {
       console.error('Failed to save message:', error);
     }
 
-    // TODO: Replace with actual API call to desKI
     setTimeout(() => {
       const botReply: Message = {
         sender: 'bot',

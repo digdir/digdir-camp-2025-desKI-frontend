@@ -32,7 +32,8 @@ export const en = {
   // ==================== //
   //    Error messages    //
   // ==================== //
-  [KEY.api_connection_error]: 'Sorry, something went wrong with the connection to the desKI API',
+  [KEY.api_connection_error]:
+    'Sorry, something went wrong with the connection to the desKI API',
 
   // ==================== //
   //      UtilityBar      //
@@ -87,7 +88,8 @@ export const nb = {
   // ==================== //
   //    Error messages    //
   // ==================== //
-  [KEY.api_connection_error]:'Beklager, noe gikk galt med forbindelsen til desKI api-et',
+  [KEY.api_connection_error]:
+    'Beklager, noe gikk galt med forbindelsen til desKI api-et',
 
   // ==================== //
   //      UtilityBar      //
@@ -142,7 +144,8 @@ export const nn = {
   // ==================== //
   //    Error messages    //
   // ==================== //
-  [KEY.api_connection_error]: 'Beklagar, noko gjekk gale med sambandet til desKI API-et',
+  [KEY.api_connection_error]:
+    'Beklagar, noko gjekk gale med sambandet til desKI API-et',
 
   // ==================== //
   //      UtilityBar      //
@@ -196,7 +199,8 @@ export const ns = {
   // ==================== //
   //    Error messages    //
   // ==================== //
-  [KEY.api_connection_error]: 'Ándagassii, juoga manai funet desKI api oktavuođain',
+  [KEY.api_connection_error]:
+    'Ándagassii, juoga manai funet desKI api oktavuođain',
 
   // ==================== //
   //      UtilityBar      //

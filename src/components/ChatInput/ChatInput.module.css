@@ -1,0 +1,84 @@
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  border-radius: 20px;
+  padding: 20px;
+  padding-right: 3.5rem;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.input:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.sendButton {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  height: 70%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  padding: 0;
+  margin: 0;
+  color: var(--ds-color-neutral-text-default);
+}
+
+.sendButton:hover {
+  outline: none;
+  border: none;
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+@media (min-width: 766px) and (max-width: 1314px) {
+  .inputWrapper {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .input {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+   .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .inputWrapper {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+}

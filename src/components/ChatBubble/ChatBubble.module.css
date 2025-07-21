@@ -3,6 +3,8 @@
   background-color: var(--ds-color-brand1-base-default);
   color: var(--ds-color-brand1-background-default);
   padding: 0.7rem;
+  padding-top: 0;
+  padding-bottom: 0;
   border-radius: 16px 16px 4px 16px;
   max-width: 100%;
   word-break: break-word;

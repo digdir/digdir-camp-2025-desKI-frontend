@@ -195,6 +195,11 @@ export function ChatbotPage() {
                 </Button>
               </Tooltip>
             </div>
+            <div className={styles.helperText}>
+              Chatboten kan gjøre feil. Kontakt Service Desk på &nbsp;
+              <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>{' '}
+              &nbsp; hvis du trenger mer hjelp.
+            </div>
           </div>
         </div>
       </div>

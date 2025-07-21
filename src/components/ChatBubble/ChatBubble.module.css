@@ -36,7 +36,6 @@
   background-color: transparent;
   color: var(--ds-color-main-text-default);
   padding: 1rem;
-  max-width: 60%;
   word-break: break-word;
   margin-bottom: 0.7rem;
 }

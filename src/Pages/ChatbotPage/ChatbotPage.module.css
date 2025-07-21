@@ -3,10 +3,14 @@
   top: 0px;
   display: flex;
   flex-direction: column;
+  padding-top: 7;
+  z-index: 1;
   min-height: 100vh;
   width: 100%;
   gap: 50px;
   align-items: center;
+  background-color: var(--ds-color-neutral-background-tinted);
+  overflow: hidden;
 }
 
 .headerContainer {
@@ -17,11 +21,15 @@
   align-items: center;
   gap: 20px;
   margin: 30px;
-  margin-left: 10rem;
+  z-index: 1000;
+  margin: 0;
+  padding-left: 40px;
+  background-color: var(--ds-color-neutral-background-tinted);
 }
 
 .logoLink {
   cursor: pointer;
+  padding-top: 10px;
 }
 
 .dropdownTrigger {
@@ -62,12 +70,14 @@
   height: 100%;
   max-width: 70rem;
   width: 100%;
+  z-index: 100;
 }
 
 .chatContainerCentered {
   margin-top: 10%;
 }
 
+<<<<<<< HEAD
 .messagesContainer {
   width: 80%;
 }
@@ -76,6 +86,8 @@
   width: 80%;
 }
 
+=======
+>>>>>>> dev
 .introText {
   font-weight: 500;
 }
@@ -85,14 +97,15 @@
   bottom: 0;
   width: 70%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  gap: 10px;
+  padding: 0;
+  background-color: var(--ds-color-neutral-background-tinted);
+  z-index: 100;
+  margin: 0;
 }
 
 .atBottom {
+  position: fixed;
   margin-top: auto;
   align-self: center;
 }
@@ -101,6 +114,11 @@
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.messagesContainer {
+  width: 80%;
+  margin-bottom: 70px;
 }
 
 .input {
@@ -225,10 +243,16 @@
 }
 
 .helperText {
-  margin-top: 0.5rem;
   font-size: 0.75rem;
-  color: #6b6b6b;
+  color: var(--ds-color-neutral-border-default #7c8289);
+  width: 100%;
   text-align: center;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 /* Media Queries */
@@ -246,6 +270,29 @@
 
   .sendContainer {
     padding: 1rem;
+    width: 60%;
+  }
+}
+
+@media (min-width: 766px) and (max-width: 1314px) {
+  .sendContainer {
+    bottom: 0;
+    width: 85%;
+    padding: 0.75rem 1rem;
+  }
+
+  .sendAreaWrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .inputWrapper {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .input {
+    flex: 1;
   }
 }
 
@@ -270,6 +317,38 @@
 
   .introText {
     font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+  .logoLink img {
+    max-width: 140px;
+    height: auto;
+    margin-left: 20px;
+  }
+
+  .dropdownTrigger {
+    margin-left: 20px;
+    margin-top: 0;
+    padding-left: 0.2rem;
+  }
+
+  .headerIcons {
+    align-self: flex-end;
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .chatContainer {
+    padding-top: 9rem;
+  }
+
+  .sendContainer {
+    width: 80%;
   }
 }
 
@@ -278,11 +357,104 @@
     font-size: 0.9rem;
   }
 
-  .helperText {
-    font-size: 0.65rem;
+  .chatStarted .sendContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background-color: var(--ds-color-neutral-background-tinted);
+    z-index: 100;
+    padding-bottom: 0;
+  }
+
+  .introText {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .chatContainer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem;
+    min-height: 50vh;
+  }
+
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .logoLink img {
+    max-width: 160px;
+    height: auto;
+    margin-left: 2px;
+  }
+
+  .headerContainer {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 0.5rem;
+    margin-left: 70px;
+  }
+
+  .messagesContainer {
+    width: 80%;
+    margin-bottom: -25px;
+  }
+
+  .input {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .introText {
+    font-weight: 500;
+    font-size: 1.4rem;
   }
 
   .sendContainer {
-    padding: 0.5rem;
+    bottom: 0;
+    padding: 0;
+    width: 85%;
+  }
+}
+/* Ekstra små skjermer – 249px og opp */
+@media (max-width: 320px) {
+  .sendContainer {
+    width: 85%;
+    padding: 0;
+    bottom: 0;
+  }
+
+  .sendAreaWrapper {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .inputWrapper {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+}
+
+/* Mobil */
+@media (min-width: 321px) and (max-width: 480px) {
+  .sendContainer {
+    width: 85%;
+    padding: 0;
+    bottom: 0;
   }
 }

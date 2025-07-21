@@ -30,6 +30,11 @@ export const en = {
   [KEY.upload_image]: 'Upload image',
 
   // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]: 'Sorry, something went wrong with the connection to the desKI API',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   // Color mode
@@ -69,6 +74,11 @@ export const nb = {
   [KEY.chat_placeholder]: 'Spør et spørsmål her...',
   [KEY.send_button]: 'Send',
   [KEY.upload_image]: 'Last opp bilde',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]:'Beklager, noe gikk galt med forbindelsen til desKI api-et',
 
   // ==================== //
   //      UtilityBar      //
@@ -112,6 +122,11 @@ export const nn = {
   [KEY.upload_image]: 'Last opp bilde',
 
   // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]: 'Beklagar, noko gjekk gale med sambandet til desKI API-et',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   //Color mode
@@ -150,6 +165,11 @@ export const ns = {
   [KEY.chat_placeholder]: 'Jeara gažaldaga dás...',
   [KEY.send_button]: 'Sádde',
   [KEY.upload_image]: 'Sádde gova',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]: 'Ándagassii, juoga manai funet desKI api oktavuođain',
 
   // ==================== //
   //      UtilityBar      //

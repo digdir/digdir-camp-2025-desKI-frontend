@@ -68,7 +68,7 @@ export function ChatbotPage() {
         ...prev,
         {
           sender: 'bot',
-          text: 'Beklager, noe gikk galt med forbindelsen til desKI',
+          text: t(KEY.api_connection_error),
         },
       ]);
     } finally {

@@ -16,6 +16,11 @@ export const KEY = {
   upload_image: 'upload_image',
 
   // ==================== //
+  //    Error messages    //
+  // ==================== //
+  api_connection_error: 'api_connection_error',
+
+  // ==================== //
   //      UtilityBar      //
   // ==================== //
   // Color mode

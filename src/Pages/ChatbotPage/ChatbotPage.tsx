@@ -89,13 +89,18 @@ export function ChatbotPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <Link to="/" className={styles.logoLink}>
+        <Link
+          to="/"
+          className={styles.logoLink}
+          aria-label={t(KEY.go_to_homepage)}
+        >
           <Logo />
         </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger
             className={styles.dropdownTrigger}
             onClick={() => setOpen(!open)}
+            aria-label={t(KEY.select_solution)}
           >
             {searchParams.get('solution')}
             <ChevronDownIcon aria-hidden />
@@ -147,7 +152,7 @@ export function ChatbotPage() {
                     <button
                       className={styles.removeImageButton}
                       onClick={() => handleRemoveImage(index)}
-                      aria-label={`Fjern bilde ${index + 1}`}
+                      aria-label={`${t(KEY.remove_image)} ${index + 1}`}
                       type="button"
                     >
                       ✖
@@ -161,11 +166,12 @@ export function ChatbotPage() {
 
             <div className={styles.inputWrapper}>
               <Input
-                placeholder={t(KEY.chat_placeholder)}
+                placeholder={`${t(KEY.chat_placeholder)}...`}
                 className={styles.input}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                aria-label={t(KEY.chat_placeholder)}
               />
               <input
                 type="file"
@@ -178,11 +184,12 @@ export function ChatbotPage() {
               <CameraUploadButton
                 onClick={() => fileInputRef.current?.click()}
               />
-              <Tooltip content={t(KEY.send_button)} placement="bottom">
+              <Tooltip content={t(KEY.send)} placement="bottom">
                 <Button
                   className={styles.sendButton}
                   variant="primary"
                   onClick={handleSend}
+                  aria-label={t(KEY.send)}
                 >
                   <PaperplaneIcon className={styles.paper} />
                 </Button>

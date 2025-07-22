@@ -1,9 +1,9 @@
 import { Button, Textarea, Tooltip } from '@digdir/designsystemet-react';
 import { CameraIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
 import styles from './ChatInput.module.css';
-import { useEffect, useRef } from 'react';
 
 type Props = {
   inputValue: string;
@@ -25,6 +25,7 @@ export function ChatInput({
     onInputChange(e.target.value);
   };
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: inputValue is intentionally used for height adjustment
   useEffect(() => {
     const el = textareaRef.current;
     if (!el) return;

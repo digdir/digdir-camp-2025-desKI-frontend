@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { logoDark, logoLight } from '~/assets';
 
-export function Logo() {
+type LogoProps = {
+  className?: string;
+};
+
+export function Logo({ className }: LogoProps) {
   const [logoSrc, setLogoSrc] = useState(logoLight);
 
   useEffect(() => {
@@ -21,5 +25,5 @@ export function Logo() {
     return () => observer.disconnect();
   }, []);
 
-  return <img src={logoSrc} alt="desKI logo" />;
+  return <img src={logoSrc} className={className} alt="desKI logo" />;
 }

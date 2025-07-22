@@ -151,10 +151,22 @@
   word-break: break-word;
 }
 
+@media (max-width: 1314px) {
+  .sendContainer {
+    bottom: 0;
+    width: 85%;
+    padding: 0.75rem 1rem;
+  }
+
+  .sendAreaWrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .headerContainer {
-    margin-left: 4rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -170,19 +182,6 @@
   }
 }
 
-@media (min-width: 766px) and (max-width: 1314px) {
-  .sendContainer {
-    bottom: 0;
-    width: 85%;
-    padding: 0.75rem 1rem;
-  }
-
-  .sendAreaWrapper {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
 @media (max-width: 768px) {
   .headerContainer {
     flex-direction: column;
@@ -192,9 +191,8 @@
     gap: 0.5rem;
   }
 
-  .logoLink img {
-    max-width: 140px;
-    height: auto;
+  .logo {
+    width: 250px;
     margin-left: 20px;
   }
 
@@ -202,13 +200,6 @@
     margin-left: 20px;
     margin-top: 0;
     padding-left: 0.2rem;
-  }
-
-  .headerIcons {
-    align-self: flex-end;
-    margin-left: auto;
-    display: flex;
-    gap: 1rem;
   }
 
   .chatContainer {
@@ -249,10 +240,8 @@
     min-height: 50vh;
   }
 
-  .logoLink img {
-    max-width: 160px;
-    height: auto;
-    margin-left: 2px;
+  .logo {
+    width: 160px;
   }
 
   .headerContainer {
@@ -262,7 +251,6 @@
     align-items: flex-start;
     padding: 0;
     gap: 0.5rem;
-    margin-left: 70px;
   }
 
   .messagesContainer {
@@ -281,6 +269,16 @@
     width: 85%;
   }
 }
+
+/* Mobil */
+@media (max-width: 480px) {
+  .sendContainer {
+    width: 85%;
+    padding: 0;
+    bottom: 0;
+  }
+}
+
 /* Ekstra små skjermer – 249px og opp */
 @media (max-width: 320px) {
   .sendContainer {
@@ -295,11 +293,3 @@
   }
 }
 
-/* Mobil */
-@media (min-width: 321px) and (max-width: 480px) {
-  .sendContainer {
-    width: 85%;
-    padding: 0;
-    bottom: 0;
-  }
-}

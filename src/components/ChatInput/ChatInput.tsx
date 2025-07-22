@@ -27,14 +27,19 @@ export function ChatInput({
   };
 
   return (
-    <div className={styles.inputWrapper}>
+    <div className={styles.textareaWrapper}>
       <Textarea
         rows={1}
         placeholder={`${t(KEY.chat_placeholder)}...`}
         className={styles.chatTextarea}
         value={inputValue}
         onChange={handleInputChange}
-        onKeyDown={(e) => e.key === 'Enter' && onSend()}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            onSend();
+          }
+        }}
         aria-label={t(KEY.chat_placeholder)}
       />
       <div className={styles.buttons}>

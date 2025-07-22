@@ -3,6 +3,7 @@ import { CameraIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
 import styles from './ChatInput.module.css';
+import { useEffect, useRef } from 'react';
 
 type Props = {
   inputValue: string;
@@ -18,20 +19,27 @@ export function ChatInput({
   fileInputRef,
 }: Props) {
   const { t } = useTranslation();
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const el = e.target;
+    onInputChange(e.target.value);
+  };
+
+  useEffect(() => {
+    const el = textareaRef.current;
+    if (!el) return;
+
     el.style.height = 'auto'; // reset height
     el.style.height = `${el.scrollHeight}px`; // grow to fit content
-    onInputChange(el.value); // update parent state
-  };
+  }, [inputValue]);
 
   return (
     <div className={styles.textareaWrapper}>
       <Textarea
-        rows={1}
-        placeholder={`${t(KEY.chat_placeholder)}...`}
         className={styles.chatTextarea}
+        rows={1}
+        ref={textareaRef}
+        placeholder={`${t(KEY.chat_placeholder)}...`}
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={(e) => {

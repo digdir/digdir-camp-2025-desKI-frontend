@@ -2,7 +2,7 @@
   align-self: flex-end;
   background-color: var(--ds-color-brand1-base-default);
   color: var(--ds-color-brand1-background-default);
-  padding: 0.7rem;
+  padding: 0.9rem;
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 16px 16px 4px 16px;
@@ -87,6 +87,7 @@
   cursor: pointer;
   z-index: 10000;
 }
+
 .bubbleWrapper {
   display: flex;
   flex-direction: column;
@@ -102,6 +103,7 @@
   align-self: flex-start;
   text-align: left;
 }
+
 .unstyledButton {
   background: none;
   border: none;
@@ -110,6 +112,7 @@
   cursor: pointer;
   display: inline;
 }
+
 .unstyledButton:focus {
   outline: none;
 }

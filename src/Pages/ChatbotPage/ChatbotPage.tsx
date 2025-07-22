@@ -3,6 +3,7 @@ import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
+import { sendChatMessage } from '~/api/chatApi';
 import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
@@ -35,7 +36,7 @@ export function ChatbotPage() {
 
   const isFirstMessage = messages.length === 0;
 
-  function handleSend() {
+  async function handleSend() {
     if (!inputValue.trim() && uploadedImages.length === 0) return;
 
     const userMessage: Message = {
@@ -48,17 +49,31 @@ export function ChatbotPage() {
     setInputValue('');
     setUploadedImages([]);
     setImageError(null);
-
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      const response = await sendChatMessage({
+        question: inputValue,
+      });
+
       const botReply: Message = {
         sender: 'bot',
-        text: 'Dette er et eksempel på et svar fra desKI 🤖',
+        text: response.answer,
       };
+
       setMessages((prev) => [...prev, botReply]);
+    } catch (err) {
+      console.error('Chatbot error:', err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: 'bot',
+          text: t(KEY.api_connection_error),
+        },
+      ]);
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   }
 
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {

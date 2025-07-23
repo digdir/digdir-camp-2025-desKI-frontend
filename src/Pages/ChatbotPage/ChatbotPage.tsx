@@ -9,6 +9,7 @@ import { Chats } from '~/components/Chats/Chats';
 import { ImageUpload } from '~/components/ImageUpload/ImageUpload';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
+import { sanitizeText } from '~/utils/sanitizeText';
 import styles from './ChatbotPage.module.css';
 
 type Message = {
@@ -38,12 +39,12 @@ export function ChatbotPage() {
   const isFirstMessage = messages.length === 0;
 
   async function handleSend() {
-    if (!inputValue.trim() && uploadedImages.length === 0) return;
+    if (!inputValue.trim()) return;
 
     const userMessage: Message = {
       sender: 'user',
       text: inputValue,
-      imageUrls: uploadedImages,
+      imageUrls: uploadedImages.length > 0 ? uploadedImages : undefined,
     };
 
     setMessages((prev) => [...prev, userMessage]);
@@ -52,9 +53,12 @@ export function ChatbotPage() {
     setImageError(null);
     setLoading(true);
 
+    // Sanitize message before sending to backend
+    const sanitizedMessage = sanitizeText(inputValue);
+
     try {
       const response = await sendChatMessage({
-        question: inputValue,
+        question: sanitizedMessage,
       });
 
       const botReply: Message = {

@@ -35,3 +35,26 @@
   padding: 0rem;
   margin: 0rem;
 }
+
+@media (max-width: 550px) {
+  .utilityBarConatiner {
+    position: fixed;
+    top: 3rem;
+  }
+  
+  .utilityButton {
+    font-size: larger;
+  }
+}
+
+@media (max-width: 480px) {
+  .utilityButton {
+    font-size: large;
+  }
+}
+
+@media (max-width: 320px) {
+  .utilityButton {
+    font-size: medium;
+  }
+}

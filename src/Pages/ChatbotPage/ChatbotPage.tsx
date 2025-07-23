@@ -95,7 +95,7 @@ export function ChatbotPage() {
           className={styles.logoLink}
           aria-label={t(KEY.go_to_homepage)}
         >
-          <Logo className={styles.logo}/>
+          <Logo className={styles.logo} />
         </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger

@@ -71,6 +71,7 @@
   max-width: 70rem;
   width: 90%;
   z-index: 100;
+  background-color: aqua;
 }
 
 .chatContainerCentered {
@@ -171,6 +172,10 @@
     margin-top: 0;
     padding-left: 0.2rem;
   }
+
+  .chatContainer {
+    font-size: medium;
+  }
 }
 
 @media (max-width: 480px) {
@@ -200,12 +205,24 @@
     font-weight: 500;
     font-size: 1.4rem;
   }
-}
 
-/* Mobil */
-@media (max-width: 480px) {
+  .chatContainer {
+    font-size: small;
+    padding-top: 8rem;
+  }
+
+  .helperText {
+    font-size: x-small
+  }
 }
 
 /* Ekstra små skjermer – 249px og opp */
 @media (max-width: 320px) {
+  .chatContainer {
+    font-size: x-small;
+  }
+
+  .helperText {
+    font-size: xx-small
+  }
 }

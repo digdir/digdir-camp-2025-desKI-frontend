@@ -31,6 +31,7 @@ export function LanguageDropdown() {
           <Dropdown.Trigger
             className={styles.utilityButton}
             onClick={() => setOpen(!open)}
+            aria-label={t(KEY.language_switch)}
           >
             <EarthIcon />
           </Dropdown.Trigger>

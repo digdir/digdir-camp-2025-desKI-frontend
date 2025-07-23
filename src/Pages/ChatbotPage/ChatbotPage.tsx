@@ -3,6 +3,7 @@ import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
+import { sendChatMessage } from '~/api/chatApi';
 import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
 import { Chats } from '~/components/Chats/Chats';
 import { Logo } from '~/components/Logo/Logo';
@@ -44,39 +45,39 @@ export function ChatbotPage() {
       text: inputValue,
       imageUrls: uploadedImages.length > 0 ? uploadedImages : undefined,
     };
+
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setUploadedImages([]);
     setImageError(null);
-
     setLoading(true);
 
     // Sanitize message before sending to backend
     const sanitizedMessage = sanitizeText(inputValue);
 
-    // Send sanitized message to backend. TODO: Replace with actual API call to desKI
-
     try {
-      await fetch('/api/save-message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: sanitizedMessage,
-          timestamp: new Date().toISOString(),
-        }),
+      const response = await sendChatMessage({
+        question: sanitizedMessage,
       });
-    } catch (error) {
-      console.error('Failed to save message:', error);
-    }
 
-    setTimeout(() => {
       const botReply: Message = {
         sender: 'bot',
-        text: 'Dette er et eksempel på et svar fra desKI 🤖',
+        text: response.answer,
       };
+
       setMessages((prev) => [...prev, botReply]);
+    } catch (err) {
+      console.error('Chatbot error:', err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: 'bot',
+          text: t(KEY.api_connection_error),
+        },
+      ]);
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   }
 
   function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
@@ -107,13 +108,18 @@ export function ChatbotPage() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.headerContainer}>
-        <Link to="/" className={styles.logoLink}>
+        <Link
+          to="/"
+          className={styles.logoLink}
+          aria-label={t(KEY.go_to_homepage)}
+        >
           <Logo />
         </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger
             className={styles.dropdownTrigger}
             onClick={() => setOpen(!open)}
+            aria-label={t(KEY.select_solution)}
           >
             {searchParams.get('solution')}
             <ChevronDownIcon aria-hidden />
@@ -165,7 +171,7 @@ export function ChatbotPage() {
                     <button
                       className={styles.removeImageButton}
                       onClick={() => handleRemoveImage(index)}
-                      aria-label={`Fjern bilde ${index + 1}`}
+                      aria-label={`${t(KEY.remove_image)} ${index + 1}`}
                       type="button"
                     >
                       ✖
@@ -179,11 +185,12 @@ export function ChatbotPage() {
 
             <div className={styles.inputWrapper}>
               <Input
-                placeholder={t(KEY.chat_placeholder)}
+                placeholder={`${t(KEY.chat_placeholder)}...`}
                 className={styles.input}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+                aria-label={t(KEY.chat_placeholder)}
               />
               <input
                 type="file"
@@ -196,11 +203,12 @@ export function ChatbotPage() {
               <CameraUploadButton
                 onClick={() => fileInputRef.current?.click()}
               />
-              <Tooltip content={t(KEY.send_button)} placement="bottom">
+              <Tooltip content={t(KEY.send)} placement="bottom">
                 <Button
                   className={styles.sendButton}
                   variant="primary"
                   onClick={handleSend}
+                  aria-label={t(KEY.send)}
                 >
                   <PaperplaneIcon className={styles.paper} />
                 </Button>

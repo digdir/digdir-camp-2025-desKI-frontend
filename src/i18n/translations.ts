@@ -25,9 +25,15 @@ export const en = {
   // ==================== //
   //      Chat area       //
   // ==================== //
-  [KEY.chat_placeholder]: 'Ask a question here...',
-  [KEY.send_button]: 'Send',
+  [KEY.chat_placeholder]: 'Ask a question here',
+  [KEY.send]: 'Send',
   [KEY.upload_image]: 'Upload image',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]:
+    'Sorry, something went wrong with the connection to the desKI API',
 
   // ==================== //
   //      UtilityBar      //
@@ -39,6 +45,15 @@ export const en = {
 
   // Language
   [KEY.language_switch]: 'Switch language',
+
+  // ==================== //
+  //        Labels        //
+  // ==================== //
+  [KEY.close_image]: 'Close image',
+  [KEY.display_image_fullscreen]: 'Display image fullscreen',
+  [KEY.go_to_homepage]: 'Go to homepage',
+  [KEY.remove_image]: 'Remove image',
+  [KEY.select_solution]: 'Select solution',
 };
 
 /**
@@ -66,9 +81,15 @@ export const nb = {
   // ==================== //
   //      Chat area       //
   // ==================== //
-  [KEY.chat_placeholder]: 'Spør et spørsmål her...',
-  [KEY.send_button]: 'Send',
-  [KEY.upload_image]: 'Last opp bilde',
+  [KEY.chat_placeholder]: 'Spør et spørsmål her',
+  [KEY.send]: 'Send',
+  [KEY.upload_image]: 'Last opp bilete',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]:
+    'Beklager, noe gikk galt med forbindelsen til desKI api-et',
 
   // ==================== //
   //      UtilityBar      //
@@ -80,6 +101,15 @@ export const nb = {
 
   // Language
   [KEY.language_switch]: 'Bytt språk',
+
+  // ==================== //
+  //        Labels        //
+  // ==================== //
+  [KEY.close_image]: 'Lukk bilete',
+  [KEY.display_image_fullscreen]: 'Vis bilde i fullskjerm',
+  [KEY.go_to_homepage]: 'Gå til forsiden',
+  [KEY.remove_image]: 'Fjern bilde',
+  [KEY.select_solution]: 'Velg løsning',
 };
 
 /**
@@ -107,9 +137,15 @@ export const nn = {
   // ==================== //
   //      Chat area       //
   // ==================== //
-  [KEY.chat_placeholder]: 'Spør eit spørsmål her...',
-  [KEY.send_button]: 'Send',
-  [KEY.upload_image]: 'Last opp bilde',
+  [KEY.chat_placeholder]: 'Spør eit spørsmål her',
+  [KEY.send]: 'Send',
+  [KEY.upload_image]: 'Last opp bilete',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]:
+    'Beklagar, noko gjekk gale med sambandet til desKI API-et',
 
   // ==================== //
   //      UtilityBar      //
@@ -121,6 +157,15 @@ export const nn = {
 
   // Language
   [KEY.language_switch]: 'Bytt språk',
+
+  // ==================== //
+  //        Labels        //
+  // ==================== //
+  [KEY.close_image]: 'Lukk bilete',
+  [KEY.display_image_fullscreen]: 'Vis bilete i fullskjerm',
+  [KEY.go_to_homepage]: 'Gå til framsida',
+  [KEY.remove_image]: 'Fjern bilete',
+  [KEY.select_solution]: 'Velg løysing',
 };
 
 /**
@@ -147,9 +192,15 @@ export const ns = {
   // ==================== //
   //      Chat area       //
   // ==================== //
-  [KEY.chat_placeholder]: 'Jeara gažaldaga dás...',
-  [KEY.send_button]: 'Sádde',
+  [KEY.chat_placeholder]: 'Jeara gažaldaga dás',
+  [KEY.send]: 'Sádde',
   [KEY.upload_image]: 'Sádde gova',
+
+  // ==================== //
+  //    Error messages    //
+  // ==================== //
+  [KEY.api_connection_error]:
+    'Ándagassii, juoga manai funet desKI api oktavuođain',
 
   // ==================== //
   //      UtilityBar      //
@@ -161,4 +212,13 @@ export const ns = {
 
   // Language
   [KEY.language_switch]: 'Molsso giela',
+
+  // ==================== //
+  //        Labels        //
+  // ==================== //
+  [KEY.close_image]: 'Bija gova gitta',
+  [KEY.display_image_fullscreen]: 'Čájet gova dievasšearbmas',
+  [KEY.go_to_homepage]: 'Mana ovdasiidui',
+  [KEY.remove_image]: 'Váldde gova eret',
+  [KEY.select_solution]: 'Vállje čovdosa',
 };

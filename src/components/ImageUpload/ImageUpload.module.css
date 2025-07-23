@@ -1,0 +1,38 @@
+.previewContainer {
+  margin-bottom: 0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.imagePreview {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--ds-color-warning-base-contrast-default);
+}
+
+.removeImageButton {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.imageError {
+  color: var(--ds-color-danger-base-default);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}

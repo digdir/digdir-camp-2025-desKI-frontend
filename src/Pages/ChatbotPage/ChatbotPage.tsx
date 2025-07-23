@@ -1,11 +1,12 @@
-import { Button, Dropdown, Input, Tooltip } from '@digdir/designsystemet-react';
-import { ChevronDownIcon, PaperplaneIcon } from '@navikt/aksel-icons';
+import { Dropdown } from '@digdir/designsystemet-react';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useSearchParams } from 'react-router-dom';
 import { sendChatMessage } from '~/api/chatApi';
-import { CameraUploadButton } from '~/components/CameraButton/CameraButton';
+import { ChatInput } from '~/components/ChatInput/ChatInput';
 import { Chats } from '~/components/Chats/Chats';
+import { ImageUpload } from '~/components/ImageUpload/ImageUpload';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
 import { sanitizeText } from '~/utils/sanitizeText';
@@ -38,7 +39,7 @@ export function ChatbotPage() {
   const isFirstMessage = messages.length === 0;
 
   async function handleSend() {
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() && uploadedImages.length === 0) return;
 
     const userMessage: Message = {
       sender: 'user',
@@ -113,7 +114,7 @@ export function ChatbotPage() {
           className={styles.logoLink}
           aria-label={t(KEY.go_to_homepage)}
         >
-          <Logo />
+          <Logo className={styles.logo} />
         </Link>
         <Dropdown.TriggerContext>
           <Dropdown.Trigger
@@ -159,61 +160,20 @@ export function ChatbotPage() {
           }`}
         >
           <div className={styles.sendAreaWrapper}>
-            {uploadedImages.length > 0 && (
-              <div className={styles.previewContainer}>
-                {uploadedImages.map((url, index) => (
-                  <div key={index} className={styles.imageWrapper}>
-                    <img
-                      src={url}
-                      alt={`Bilde ${index + 1}`}
-                      className={styles.imagePreview}
-                    />
-                    <button
-                      className={styles.removeImageButton}
-                      onClick={() => handleRemoveImage(index)}
-                      aria-label={`${t(KEY.remove_image)} ${index + 1}`}
-                      type="button"
-                    >
-                      ✖
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
+            <ImageUpload
+              uploadedImages={uploadedImages}
+              imageError={imageError}
+              onImageUpload={handleImageUpload}
+              onRemoveImage={handleRemoveImage}
+              fileInputRef={fileInputRef}
+            />
 
-            {imageError && <p className={styles.imageError}>{imageError}</p>}
-
-            <div className={styles.inputWrapper}>
-              <Input
-                placeholder={`${t(KEY.chat_placeholder)}...`}
-                className={styles.input}
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                aria-label={t(KEY.chat_placeholder)}
-              />
-              <input
-                type="file"
-                accept="image/*"
-                multiple
-                onChange={handleImageUpload}
-                ref={fileInputRef}
-                style={{ display: 'none' }}
-              />
-              <CameraUploadButton
-                onClick={() => fileInputRef.current?.click()}
-              />
-              <Tooltip content={t(KEY.send)} placement="bottom">
-                <Button
-                  className={styles.sendButton}
-                  variant="primary"
-                  onClick={handleSend}
-                  aria-label={t(KEY.send)}
-                >
-                  <PaperplaneIcon className={styles.paper} />
-                </Button>
-              </Tooltip>
-            </div>
+            <ChatInput
+              inputValue={inputValue}
+              onInputChange={setInputValue}
+              onSend={handleSend}
+              fileInputRef={fileInputRef}
+            />
             <div className={styles.helperText}>
               Chatboten kan gjøre feil. Kontakt Service Desk på &nbsp;
               <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>{' '}

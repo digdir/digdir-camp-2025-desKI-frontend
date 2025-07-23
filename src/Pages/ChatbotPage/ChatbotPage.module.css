@@ -65,11 +65,12 @@
   flex: 1;
   padding: 2rem;
   padding-top: 10rem;
+  padding-bottom: 4rem;
   align-items: center;
   gap: 2rem;
   height: 100%;
   max-width: 70rem;
-  width: 100%;
+  width: 90%;
   z-index: 100;
 }
 
@@ -84,8 +85,10 @@
 .sendContainer {
   position: sticky;
   bottom: 0;
-  width: 70%;
+  width: 100%;
+  max-width: 70rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 0;
   background-color: var(--ds-color-neutral-background-tinted);
@@ -99,55 +102,9 @@
   align-self: center;
 }
 
-.inputWrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
 .messagesContainer {
-  width: 80%;
-  margin-bottom: 70px;
-}
-
-.input {
-  border-radius: 20px;
-  padding: 20px;
-  padding-right: 3.5rem;
   width: 100%;
-  height: 100%;
-  border: none;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-
-.input:focus {
-  outline: none;
-  border: none;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-}
-
-.sendButton {
-  position: absolute;
-  top: 50%;
-  right: 0.5rem;
-  transform: translateY(-50%);
-  height: 70%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: large;
-  padding: 0;
-  margin: 0;
-  color: var(--ds-color-neutral-text-default);
-}
-
-.sendButton:hover {
-  outline: none;
-  border: none;
-  color: var(--ds-color-neutral-text-subtle);
+  margin-bottom: 70px;
 }
 
 .previewImage {
@@ -155,6 +112,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
 .inputWithImage {
   display: flex;
   align-items: center;
@@ -169,66 +127,11 @@
   object-fit: cover;
 }
 
-.previewContainer {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.imageWrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.imagePreview {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid var(--ds-color-warning-base-contrast-default);
-}
-
-.imageError {
-  color: var(--ds-color-danger-base-default);
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-.previewContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-bottom: 10px;
-  max-width: 100%;
-}
-
 .imagePreviewAboveInput {
   width: 100px;
   height: auto;
   border-radius: 6px;
   border: 1px solid var(--ds-color-warning-base-contrast-default);
-}
-
-.removeImageButton {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-}
-
-.sendAreaWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
 }
 
 .helperText {
@@ -244,44 +147,9 @@
   word-break: break-word;
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-  .headerContainer {
-    margin-left: 4rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .dropdownTrigger {
-    margin-top: 0;
-  }
-
+@media (max-width: 1314px) {
   .sendContainer {
-    padding: 1rem;
-    width: 60%;
-  }
-}
-
-@media (min-width: 766px) and (max-width: 1314px) {
-  .sendContainer {
-    bottom: 0;
-    width: 85%;
-    padding: 0.75rem 1rem;
-  }
-
-  .sendAreaWrapper {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .inputWrapper {
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-
-  .input {
-    flex: 1;
+    width: 90%;
   }
 }
 
@@ -313,9 +181,8 @@
     gap: 0.5rem;
   }
 
-  .logoLink img {
-    max-width: 140px;
-    height: auto;
+  .logo {
+    width: 250px;
     margin-left: 20px;
   }
 
@@ -325,19 +192,8 @@
     padding-left: 0.2rem;
   }
 
-  .headerIcons {
-    align-self: flex-end;
-    margin-left: auto;
-    display: flex;
-    gap: 1rem;
-  }
-
   .chatContainer {
-    padding-top: 9rem;
-  }
-
-  .sendContainer {
-    width: 80%;
+    font-size: medium;
   }
 }
 
@@ -346,42 +202,13 @@
     font-size: 0.9rem;
   }
 
-  .chatStarted .sendContainer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0;
-    background-color: var(--ds-color-neutral-background-tinted);
-    z-index: 100;
-    padding-bottom: 0;
-  }
-
   .introText {
     font-size: 1rem;
     text-align: center;
   }
 
-  .chatContainer {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 8rem;
-    min-height: 50vh;
-  }
-
-  .inputWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
-  }
-
-  .logoLink img {
-    max-width: 160px;
-    height: auto;
-    margin-left: 2px;
+  .logo {
+    width: 160px;
   }
 
   .headerContainer {
@@ -391,59 +218,32 @@
     align-items: flex-start;
     padding: 0;
     gap: 0.5rem;
-    margin-left: 70px;
   }
 
-  .messagesContainer {
-    width: 80%;
-    margin-bottom: -25px;
-  }
-
-  .input {
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    font-size: 0.9rem;
-  }
   .introText {
     font-weight: 500;
     font-size: 1.4rem;
   }
 
-  .sendContainer {
-    bottom: 0;
-    padding: 0;
-    width: 85%;
+  .chatContainer {
+    font-size: small;
+    padding-top: 8rem;
+  }
+
+  .helperText {
+    font-size: x-small;
   }
 }
-/* Ekstra små skjermer – 249px og opp */
+
 @media (max-width: 320px) {
-  .sendContainer {
-    width: 85%;
-    padding: 0;
-    bottom: 0;
+  .logo {
+    width: 140px;
+  }
+  .chatContainer {
+    font-size: x-small;
   }
 
-  .sendAreaWrapper {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .inputWrapper {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .input {
-    width: 100%;
-  }
-}
-
-/* Mobil */
-@media (min-width: 321px) and (max-width: 480px) {
-  .sendContainer {
-    width: 85%;
-    padding: 0;
-    bottom: 0;
+  .helperText {
+    font-size: xx-small;
   }
 }

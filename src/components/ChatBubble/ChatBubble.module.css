@@ -6,7 +6,7 @@
   padding-top: 0;
   padding-bottom: 0;
   border-radius: 16px 16px 4px 16px;
-  max-width: 100%;
+  max-width: 90%;
   word-break: break-word;
   margin-bottom: 0.75rem;
   margin-right: 1rem;
@@ -40,6 +40,7 @@
   padding: 1rem;
   word-break: break-word;
   margin-bottom: 0.7rem;
+  width: 100%;
 }
 
 .imageGrid {
@@ -116,4 +117,25 @@
 
 .unstyledButton:focus {
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .bubbleWrapper {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .userBubble {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .botBubble {
+    margin-bottom: 0;
+  }
+
+  .bubbleWrapper {
+    max-width: 90%;
+  }
 }

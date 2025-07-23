@@ -39,7 +39,7 @@ export function ChatbotPage() {
   const isFirstMessage = messages.length === 0;
 
   async function handleSend() {
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() && uploadedImages.length === 0) return;
 
     const userMessage: Message = {
       sender: 'user',

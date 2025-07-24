@@ -1,5 +1,6 @@
 export type ChatRequestDTO = {
   question: string;
+  previous: string[];
 };
 
 export type ChatResponseDTO = {

@@ -17,13 +17,17 @@ type Message = {
   text: string;
   imageUrls?: string[];
 };
+
+type ChatbotPageProps = {
+  source: 'brukerstotte' | 'servicedesk';
+};
 /**
  * The main chatbot interface component.
  * Handles input, dropdown solution selection, chat message rendering, and auto-scrolling.
  * allows image uploads, and handles sending messages with or without images.
  */
 
-export function ChatbotPage() {
+export function ChatbotPage({ source }: ChatbotPageProps) {
   const { t } = useTranslation();
   const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
   const [loading, setLoading] = useState(false);
@@ -117,28 +121,31 @@ export function ChatbotPage() {
         >
           <Logo className={styles.logo} />
         </Link>
-        <Dropdown.TriggerContext>
-          <Dropdown.Trigger
-            className={styles.dropdownTrigger}
-            onClick={() => setOpen(!open)}
-            aria-label={t(KEY.select_solution)}
-          >
-            {searchParams.get('solution')}
-            <ChevronDownIcon aria-hidden />
-          </Dropdown.Trigger>
-          <Dropdown open={open} onClose={() => setOpen(false)}>
-            <Dropdown.List>
-              {solutions.map((solution) => (
-                <Dropdown.Button
-                  key={solution}
-                  className={styles.dropdownButton}
-                >
-                  {solution}
-                </Dropdown.Button>
-              ))}
-            </Dropdown.List>
-          </Dropdown>
-        </Dropdown.TriggerContext>
+        {/* Stops dropdown menu from rendering if source is brukerstotte */}
+        {source !== 'brukerstotte' && (
+          <Dropdown.TriggerContext>
+            <Dropdown.Trigger
+              className={styles.dropdownTrigger}
+              onClick={() => setOpen(!open)}
+              aria-label={t(KEY.select_solution)}
+            >
+              {searchParams.get('solution')}
+              <ChevronDownIcon aria-hidden />
+            </Dropdown.Trigger>
+            <Dropdown open={open} onClose={() => setOpen(false)}>
+              <Dropdown.List>
+                {solutions.map((solution) => (
+                  <Dropdown.Button
+                    key={solution}
+                    className={styles.dropdownButton}
+                  >
+                    {solution}
+                  </Dropdown.Button>
+                ))}
+              </Dropdown.List>
+            </Dropdown>
+          </Dropdown.TriggerContext>
+        )}
       </div>
 
       <div

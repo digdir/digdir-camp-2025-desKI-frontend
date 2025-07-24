@@ -16,8 +16,14 @@ export const router = createBrowserRouter(
       loader={clientLoader}
       action={clientAction}
     >
-      <Route index element={<StartPage />} />
-      <Route path="chatbot" element={<ChatbotPage />} />
+      <Route path="servicedesk">
+        <Route index element={<StartPage />} />
+        <Route path="chat" element={<ChatbotPage source="servicedesk" />} />
+      </Route>
+      <Route
+        path="brukerstotte"
+        element={<ChatbotPage source="brukerstotte" />}
+      />
     </Route>,
   ),
 );

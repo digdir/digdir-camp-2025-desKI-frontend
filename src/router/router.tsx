@@ -19,7 +19,7 @@ export const router = createBrowserRouter(
       <Route path="servicedesk">
         <Route index element={<StartPage />} />
         <Route
-          path="solutionSlug"
+          path=":solutionSlug"
           element={<ChatbotPage source="servicedesk" />}
         />
       </Route>

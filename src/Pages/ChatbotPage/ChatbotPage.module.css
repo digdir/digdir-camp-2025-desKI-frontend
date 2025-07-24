@@ -32,32 +32,6 @@
   padding-top: 10px;
 }
 
-.dropdownTrigger {
-  color: var(--ds-color-main-text-default);
-  margin-top: 30px;
-  background-color: transparent;
-  border: none;
-}
-
-.dropdownTrigger:hover,
-.dropdownTrigger:focus,
-.dropdownTrigger:active,
-.dropdownTrigger:focus-visible {
-  background-color: var(--ds-color-neutral-surface-hover);
-  border: none;
-  outline: none;
-}
-
-.dropdownButton {
-  border: none;
-  outline: none;
-}
-
-.dropdownButton:hover {
-  border: none;
-  background-color: var(--ds-color-neutral-surface-hover);
-}
-
 .chatContainer {
   position: relative;
   display: flex;
@@ -186,22 +160,12 @@
     margin-left: 20px;
   }
 
-  .dropdownTrigger {
-    margin-left: 20px;
-    margin-top: 0;
-    padding-left: 0.2rem;
-  }
-
   .chatContainer {
     font-size: medium;
   }
 }
 
 @media (max-width: 480px) {
-  .dropdownTrigger {
-    font-size: 0.9rem;
-  }
-
   .introText {
     font-size: 1rem;
     text-align: center;

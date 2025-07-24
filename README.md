@@ -21,6 +21,10 @@ docker compose up
 
 This starts the frontend on http://localhost:3000
 
+- To open the servicedesk version go to http://localhost:5173/servicedesk
+
+- To open the brukerstøtte vsrion go to http://localhost:5173/brukerstotte
+
 ## 🧪 Local Development (optional)
 
 If you want to run the frontend outside Docker:
@@ -30,6 +34,10 @@ npm install
 npm run dev
 ```
 The app will start at http://localhost:5173
+
+- To open the servicedesk version go to http://localhost:5173/servicedesk
+
+- To open the brukerstøtte vsrion go to http://localhost:5173/brukerstotte
 
 ## Biome
 This project uses Biome for formatting, linting, and import sorting.

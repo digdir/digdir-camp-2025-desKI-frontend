@@ -21,7 +21,7 @@ export const router = createBrowserRouter(
         <Route path="chat" element={<ChatbotPage source="servicedesk" />} />
       </Route>
       <Route
-        path="brukerstotte/chat"
+        path="brukerstotte"
         element={<ChatbotPage source="brukerstotte" />}
       />
     </Route>,

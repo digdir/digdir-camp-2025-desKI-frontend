@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
+import { slugify } from '~/utils/slugify';
 import styles from './StartPage.module.css';
 
 /**
@@ -23,7 +24,7 @@ export function StartPage() {
         {solutions.map((title) => (
           <Link
             key={title}
-            to={`/servicedesk/chat?solution=${title}`}
+            to={`/servicedesk/${slugify(title)}`}
             className={styles.cardLink}
           >
             <Card className={styles.solutionCard} variant="tinted">

@@ -121,7 +121,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
           <Logo className={styles.logo} />
         </Link>
         {/* Stops dropdown menu from rendering if source is brukerstotte */}
-        {source !== 'brukerstotte' ? (
+        {source !== 'brukerstotte' && (
           <Dropdown.TriggerContext>
             <Dropdown.Trigger
               className={styles.dropdownTrigger}
@@ -144,8 +144,6 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
               </Dropdown.List>
             </Dropdown>
           </Dropdown.TriggerContext>
-        ) : (
-          <h2 className={styles.brukerstotteText}>Brukerstøtte</h2>
         )}
       </div>
 

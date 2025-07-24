@@ -32,13 +32,6 @@
   padding-top: 10px;
 }
 
-.brukerstotteText {
-  font-weight: 500;
-  font-size: 1.3rem;
-  align-self: last baseline;
-  margin-bottom: 7px;
-}
-
 .dropdownTrigger {
   color: var(--ds-color-main-text-default);
   margin-top: 30px;

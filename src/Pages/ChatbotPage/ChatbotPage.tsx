@@ -1,11 +1,10 @@
-import { Dropdown } from '@digdir/designsystemet-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { sendChatMessage } from '~/api/chatApi';
 import { ChatInput } from '~/components/ChatInput/ChatInput';
 import { Chats } from '~/components/Chats/Chats';
+import { DropdownMenu } from '~/components/DropdownMenu/DropdownMenu';
 import { ImageUpload } from '~/components/ImageUpload/ImageUpload';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
@@ -29,10 +28,7 @@ type ChatbotPageProps = {
 
 export function ChatbotPage({ source }: ChatbotPageProps) {
   const { t } = useTranslation();
-  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [searchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
@@ -121,31 +117,9 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
         >
           <Logo className={styles.logo} />
         </Link>
+
         {/* Stops dropdown menu from rendering if source is brukerstotte */}
-        {source !== 'brukerstotte' && (
-          <Dropdown.TriggerContext>
-            <Dropdown.Trigger
-              className={styles.dropdownTrigger}
-              onClick={() => setOpen(!open)}
-              aria-label={t(KEY.select_solution)}
-            >
-              {searchParams.get('solution')}
-              <ChevronDownIcon aria-hidden />
-            </Dropdown.Trigger>
-            <Dropdown open={open} onClose={() => setOpen(false)}>
-              <Dropdown.List>
-                {solutions.map((solution) => (
-                  <Dropdown.Button
-                    key={solution}
-                    className={styles.dropdownButton}
-                  >
-                    {solution}
-                  </Dropdown.Button>
-                ))}
-              </Dropdown.List>
-            </Dropdown>
-          </Dropdown.TriggerContext>
-        )}
+        {source !== 'brukerstotte' && <DropdownMenu />}
       </div>
 
       <div

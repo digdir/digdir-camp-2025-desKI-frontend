@@ -3,6 +3,7 @@ import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { SOLUTIONS_NO } from '~/data/solutions';
 import { KEY } from '~/i18n/constants';
 import { slugify } from '~/utils/slugify';
 import styles from './DropdownMenu.module.css';
@@ -11,9 +12,14 @@ function formatSlug(slug: string): string {
   return slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+/**
+ * DropdownMenu displays translated support solutions in a dropdown.
+ * URLs use Norwegian slugs (from SOLUTIONS_NO) for consistency.
+ * Only used in the 'servicedesk' route.
+ */
+
 export function DropdownMenu() {
   const { t } = useTranslation();
-  const solutions = t(KEY.solutions_list, { returnObjects: true }) as string[];
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,12 +27,34 @@ export function DropdownMenu() {
   const pathParts = location.pathname.split('/');
   const source = pathParts[1]; // 'servicedesk'
   const currentSlug = pathParts[2] || '';
-  const currentSolution =
-    solutions.find((s) => slugify(s) === currentSlug) ||
-    formatSlug(currentSlug);
 
-  const handleSelect = (solution: string) => {
-    const slug = slugify(solution);
+  // Get translated solutions (order must match SOLUTIONS_NO)
+  const translatedSolutions = t(KEY.solutions_list, {
+    returnObjects: true,
+  }) as string[];
+
+  // Map Norwegian name -> translated name
+  const solutionMap = SOLUTIONS_NO.reduce(
+    (acc, noName, index) => {
+      acc[noName] = translatedSolutions[index];
+      return acc;
+    },
+    {} as Record<string, string>,
+  );
+
+  // Find which Norwegian solution matches the slug
+  const norwegianName = SOLUTIONS_NO.find(
+    (name) => slugify(name) === currentSlug,
+  );
+
+  // Display name: translated if found, fallback to formatted slug
+  const currentSolution =
+    norwegianName && solutionMap[norwegianName]
+      ? solutionMap[norwegianName]
+      : formatSlug(currentSlug);
+
+  const handleSelect = (norwegianName: string) => {
+    const slug = slugify(norwegianName);
     navigate(`/${source}/${slug}`);
     setOpen(false);
   };
@@ -43,13 +71,13 @@ export function DropdownMenu() {
       </Dropdown.Trigger>
       <Dropdown open={open} onClose={() => setOpen(false)}>
         <Dropdown.List>
-          {solutions.map((solution) => (
+          {SOLUTIONS_NO.map((norwegianName) => (
             <Dropdown.Button
-              key={solution}
-              onClick={() => handleSelect(solution)}
+              key={norwegianName}
+              onClick={() => handleSelect(norwegianName)}
               className={styles.dropdownButton}
             >
-              {solution}
+              {solutionMap[norwegianName] || norwegianName}
             </Dropdown.Button>
           ))}
         </Dropdown.List>

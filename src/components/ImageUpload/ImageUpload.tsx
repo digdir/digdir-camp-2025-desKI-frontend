@@ -1,3 +1,4 @@
+import { XMarkIcon } from '@navikt/aksel-icons';
 import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
 import styles from './ImageUpload.module.css';
@@ -30,14 +31,14 @@ export function ImageUpload({
                 alt={`Bilde ${index + 1}`}
                 className={styles.imagePreview}
               />
-              <button
-                className={styles.removeImageButton}
-                onClick={() => onRemoveImage(index)}
-                aria-label={`${t(KEY.remove_image)} ${index + 1}`}
-                type="button"
-              >
-                ✖
-              </button>
+                <button
+                  className={styles.removeImageButton}
+                  onClick={() => onRemoveImage(index)}
+                  aria-label={`${t(KEY.remove_image)} ${index + 1}`}
+                  type="button"
+                >
+                  <XMarkIcon />
+                </button>
             </div>
           ))}
         </div>

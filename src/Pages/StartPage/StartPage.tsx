@@ -23,7 +23,7 @@ export function StartPage() {
         {solutions.map((title) => (
           <Link
             key={title}
-            to={`/chatbot?solution=${title}`}
+            to={`/servicedesk/chat?solution=${title}`}
             className={styles.cardLink}
           >
             <Card className={styles.solutionCard} variant="tinted">

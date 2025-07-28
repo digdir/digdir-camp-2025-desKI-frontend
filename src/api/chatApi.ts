@@ -9,8 +9,14 @@ export type ChatResponseDTO = {
 
 export async function sendChatMessage(
   data: ChatRequestDTO,
+  source: 'brukerstotte' | 'servicedesk',
 ): Promise<ChatResponseDTO> {
-  const response = await fetch('http://localhost:8000/chatbot', {
+  const endpoint =
+    source === 'servicedesk'
+      ? 'http://localhost:8000/servicedesk'
+      : 'http://localhost:8000/brukerstotte';
+
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

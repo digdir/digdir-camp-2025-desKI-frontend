@@ -10,6 +10,7 @@ type Message = {
 type ChatsProps = {
   messages: Message[];
   loading?: boolean;
+  onImageClick?: (url: string) => void;
 };
 
 /**
@@ -18,7 +19,7 @@ type ChatsProps = {
  * @param messages - Array of chat messages to display.
  * @param loading - Whether the chatbot is currently loading a response.
  */
-export function Chats({ messages, loading }: ChatsProps) {
+export function Chats({ messages, loading, onImageClick }: ChatsProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       {messages.map((msg, index) => (
@@ -27,6 +28,7 @@ export function Chats({ messages, loading }: ChatsProps) {
           sender={msg.sender}
           message={msg.text}
           imageUrls={msg.imageUrls}
+          onImageClick={onImageClick}
         />
       ))}
 

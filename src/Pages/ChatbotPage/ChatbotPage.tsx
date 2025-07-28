@@ -5,6 +5,7 @@ import { sendChatMessage } from '~/api/chatApi';
 import { ChatInput } from '~/components/ChatInput/ChatInput';
 import { Chats } from '~/components/Chats/Chats';
 import { DropdownMenu } from '~/components/DropdownMenu/DropdownMenu';
+import { FullscreenImage } from '~/components/FullscreenImage/FullscreenImage';
 import { ImageUpload } from '~/components/ImageUpload/ImageUpload';
 import { Logo } from '~/components/Logo/Logo';
 import { KEY } from '~/i18n/constants';
@@ -35,6 +36,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
   const [imageError, setImageError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   const isFirstMessage = messages.length === 0;
 
@@ -108,62 +110,74 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
   }, [messages]);
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.headerContainer}>
-        <Link
-          to="/"
-          className={styles.logoLink}
-          aria-label={t(KEY.go_to_homepage)}
-        >
-          <Logo className={styles.logo} />
-        </Link>
+    <>
+      {fullscreenImage && (
+        <FullscreenImage
+          imageUrl={fullscreenImage}
+          onClose={() => setFullscreenImage(null)}
+        />
+      )}
+      <div className={styles.mainContainer}>
+        <div className={styles.headerContainer}>
+          <Link
+            to="/"
+            className={styles.logoLink}
+            aria-label={t(KEY.go_to_homepage)}
+          >
+            <Logo className={styles.logo} />
+          </Link>
 
-        {/* Stops dropdown menu from rendering if source is brukerstotte */}
-        {source !== 'brukerstotte' && <DropdownMenu />}
-      </div>
-
-      <div
-        className={`${styles.chatContainer} ${
-          isFirstMessage ? styles.chatContainerCentered : ''
-        }`}
-      >
-        <div className={styles.messagesContainer}>
-          <Chats messages={messages} loading={loading} />
-          <div ref={bottomRef} />
+          {/* Stops dropdown menu from rendering if source is brukerstotte */}
+          {source !== 'brukerstotte' && <DropdownMenu />}
         </div>
 
-        {isFirstMessage && (
-          <h2 className={styles.introText}>{t(KEY.chatbot_welcome)}</h2>
-        )}
-
         <div
-          className={`${styles.sendContainer} ${
-            !isFirstMessage ? styles.atBottom : ''
+          className={`${styles.chatContainer} ${
+            isFirstMessage ? styles.chatContainerCentered : ''
           }`}
         >
-          <div className={styles.sendAreaWrapper}>
-            <ImageUpload
-              uploadedImages={uploadedImages}
-              imageError={imageError}
-              onImageUpload={handleImageUpload}
-              onRemoveImage={handleRemoveImage}
-              fileInputRef={fileInputRef}
+          <div className={styles.messagesContainer}>
+            <Chats
+              messages={messages}
+              loading={loading}
+              onImageClick={setFullscreenImage}
             />
+            <div ref={bottomRef} />
+          </div>
 
-            <ChatInput
-              inputValue={inputValue}
-              onInputChange={setInputValue}
-              onSend={handleSend}
-              fileInputRef={fileInputRef}
-            />
-            <div className={styles.helperText}>
-              Chatboten kan gjøre feil. Kontakt Service Desk på &nbsp;
-              <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>{' '}
-              &nbsp; hvis du trenger mer hjelp.
+          {isFirstMessage && (
+            <h2 className={styles.introText}>{t(KEY.chatbot_welcome)}</h2>
+          )}
+
+          <div
+            className={`${styles.sendContainer} ${
+              !isFirstMessage ? styles.atBottom : ''
+            }`}
+          >
+            <div className={styles.sendAreaWrapper}>
+              <ImageUpload
+                uploadedImages={uploadedImages}
+                imageError={imageError}
+                onImageUpload={handleImageUpload}
+                onRemoveImage={handleRemoveImage}
+                fileInputRef={fileInputRef}
+              />
+
+              <ChatInput
+                inputValue={inputValue}
+                onInputChange={setInputValue}
+                onSend={handleSend}
+                fileInputRef={fileInputRef}
+              />
+              <div className={styles.helperText}>
+                Chatboten kan gjøre feil. Kontakt Service Desk på &nbsp;
+                <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>{' '}
+                &nbsp; hvis du trenger mer hjelp.
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

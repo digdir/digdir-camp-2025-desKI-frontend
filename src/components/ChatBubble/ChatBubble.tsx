@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { KEY } from '~/i18n/constants';
 import styles from './ChatBubble.module.css';
@@ -7,6 +6,7 @@ type Props = {
   message: string;
   sender: 'user' | 'bot';
   imageUrls?: string[];
+  onImageClick?: (url: string) => void;
 };
 
 /**
@@ -16,18 +16,15 @@ type Props = {
  * @param message - The text content of the message.
  * @param sender - Who sent the message ('user' or 'bot').
  * @param imageUrls - Optional list of image URLs to show in the bubble.
+ * @param onImageClick - Optional Callback to handle image click events, allowing images to be displayed in full screen.
  */
-export function ChatBubble({ message, sender, imageUrls }: Props) {
+export function ChatBubble({
+  message,
+  sender,
+  imageUrls,
+  onImageClick,
+}: Props) {
   const { t } = useTranslation();
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
-
-  function openImageFullscreen(url: string) {
-    setFullscreenImage(url);
-  }
-
-  function closeFullscreen() {
-    setFullscreenImage(null);
-  }
 
   return (
     <>
@@ -44,7 +41,7 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
                 type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  openImageFullscreen(url);
+                  onImageClick?.(url);
                 }}
                 className={styles.unstyledButton}
                 aria-label={t(KEY.display_image_fullscreen)}
@@ -68,24 +65,6 @@ export function ChatBubble({ message, sender, imageUrls }: Props) {
           </div>
         )}
       </div>
-
-      {fullscreenImage && (
-        <div className={styles.fullscreenOverlay}>
-          <button
-            className={styles.closeButton}
-            onClick={closeFullscreen}
-            aria-label={t(KEY.close_image)}
-            type="button"
-          >
-            ✕
-          </button>
-          <img
-            src={fullscreenImage}
-            className={styles.fullscreenImage}
-            alt="Fullskjerm bilde"
-          />
-        </div>
-      )}
     </>
   );
 }

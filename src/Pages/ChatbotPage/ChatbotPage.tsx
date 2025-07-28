@@ -161,6 +161,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
                 onImageUpload={handleImageUpload}
                 onRemoveImage={handleRemoveImage}
                 fileInputRef={fileInputRef}
+                onImageClick={setFullscreenImage}
               />
 
               <ChatInput

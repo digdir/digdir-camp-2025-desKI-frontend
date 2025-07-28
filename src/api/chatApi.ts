@@ -13,8 +13,8 @@ export async function sendChatMessage(
 ): Promise<ChatResponseDTO> {
   const endpoint =
     source === 'servicedesk'
-      ? 'http://localhost:8000/chatbot-servicedesk'
-      : 'http://localhost:8000/chatbot-brukerstotte';
+      ? 'http://localhost:8000/servicedesk'
+      : 'http://localhost:8000/brukerstotte';
 
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -30,3 +30,4 @@ export async function sendChatMessage(
 
   return await response.json();
 }
+

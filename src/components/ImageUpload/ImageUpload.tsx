@@ -37,7 +37,6 @@ export function ImageUpload({
                   src={url}
                   alt={`Bilde ${index + 1}`}
                   className={styles.imagePreview}
-                  onClick={() => onImageClick?.(url)}
                 />
               </button>
               <button

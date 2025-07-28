@@ -30,4 +30,3 @@ export async function sendChatMessage(
 
   return await response.json();
 }
-

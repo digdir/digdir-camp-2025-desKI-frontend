@@ -123,7 +123,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
       <div className={styles.mainContainer}>
         <div className={styles.headerContainer}>
           <Link
-            to="/"
+            to={`/${source}`}
             className={styles.logoLink}
             aria-label={t(KEY.go_to_homepage)}
           >

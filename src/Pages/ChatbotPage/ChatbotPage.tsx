@@ -57,10 +57,13 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
     const sanitizedMessage = sanitizeText(inputValue);
 
     try {
-      const response = await sendChatMessage({
-        question: sanitizedMessage,
-        previous: messages.slice(-6).map((msg) => msg.text),
-      });
+      const response = await sendChatMessage(
+        {
+          question: sanitizedMessage,
+          previous: messages.slice(-6).map((msg) => msg.text),
+        },
+        source,
+      );
 
       const botReply: Message = {
         sender: 'bot',

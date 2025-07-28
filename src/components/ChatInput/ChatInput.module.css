@@ -1,7 +1,8 @@
 .textareaWrapper {
   position: relative;
   width: 100%;
-  margin-bottom: -3rem;
+  height: 100%;
+  padding-bottom: 1rem;
 }
 
 .chatTextarea {
@@ -27,9 +28,11 @@
   justify-content: flex-end;
   background-color: var(--ds-color-neutral-surface-default);
   border-bottom-left-radius: 20px;
-  position: inherit;
+  border-bottom-right-radius: 20px;
+  position: absolute;
   bottom: 3rem;
   margin-right: 1.2rem;
+  width: 100%;
 }
 
 .inputButton {
@@ -49,6 +52,18 @@
   outline: none;
   border: none;
   color: var(--ds-color-neutral-text-subtle);
+}
+
+.helperText {
+  font-size: 0.75rem;
+  color: var(--ds-color-neutral-text-default);
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 
 @media (min-width: 766px) and (max-width: 1314px) {
@@ -77,6 +92,10 @@
     padding: 10px;
     font-size: 0.9rem;
   }
+
+  .helperText {
+    font-size: x-small;
+  }
 }
 
 @media (max-width: 320px) {
@@ -87,5 +106,9 @@
 
   .input {
     width: 100%;
+  }
+
+  .helperText {
+    font-size: xx-small;
   }
 }

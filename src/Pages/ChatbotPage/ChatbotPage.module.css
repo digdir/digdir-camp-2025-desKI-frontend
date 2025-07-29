@@ -32,6 +32,10 @@
   padding-top: 10px;
 }
 
+.logo {
+  width: 240px;
+}
+
 .chatContainer {
   position: relative;
   display: flex;

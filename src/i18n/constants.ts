@@ -8,6 +8,9 @@ export const KEY = {
 
   solutions_list: 'solutions_list',
 
+  helper_text_pre: 'helper_text_pre',
+  helper_text_post: 'helper_text_post',
+
   // ==================== //
   //      Chat area       //
   // ==================== //
@@ -19,6 +22,7 @@ export const KEY = {
   //    Error messages    //
   // ==================== //
   api_connection_error: 'api_connection_error',
+  image_upload_error: 'image_upload_error',
 
   // ==================== //
   //      UtilityBar      //

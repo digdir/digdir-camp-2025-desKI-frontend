@@ -10,6 +10,7 @@ type Props = {
   onInputChange: (value: string) => void;
   onSend: () => void;
   fileInputRef: React.RefObject<HTMLInputElement | null>;
+  source: 'brukerstotte' | 'servicedesk';
 };
 
 export function ChatInput({
@@ -17,6 +18,7 @@ export function ChatInput({
   onInputChange,
   onSend,
   fileInputRef,
+  source,
 }: Props) {
   const { t } = useTranslation();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -74,9 +76,23 @@ export function ChatInput({
         </Tooltip>
       </div>
       <div className={styles.helperText}>
-        Chatboten kan gjøre feil. Kontakt Service Desk på&nbsp;
-        <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>&nbsp;
-        hvis du trenger mer hjelp.
+        {t(KEY.helper_text_pre, {
+          source: source === 'brukerstotte' ? 'Brukerstøtte' : 'Servicedesk',
+        })}
+        &nbsp;
+        <a
+          href={`mailto:${
+            source === 'brukerstotte'
+              ? 'brukerstotte@digdir.no'
+              : 'servicedesk@digdir.no'
+          }`}
+        >
+          {source === 'brukerstotte'
+            ? 'brukerstotte@digdir.no'
+            : 'servicedesk@digdir.no'}
+        </a>
+        &nbsp;
+        {t(KEY.helper_text_post)}
       </div>
     </div>
   );

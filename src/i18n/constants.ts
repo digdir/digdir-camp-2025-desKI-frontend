@@ -22,6 +22,7 @@ export const KEY = {
   //    Error messages    //
   // ==================== //
   api_connection_error: 'api_connection_error',
+  image_upload_error: 'image_upload_error',
 
   // ==================== //
   //      UtilityBar      //

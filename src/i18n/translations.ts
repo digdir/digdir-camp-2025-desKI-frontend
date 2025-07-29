@@ -38,6 +38,7 @@ export const en = {
   // ==================== //
   [KEY.api_connection_error]:
     'Sorry, something went wrong with the connection to the desKI API',
+  [KEY.image_upload_error]: 'You can upload a maximum of 5 images.',
 
   // ==================== //
   //      UtilityBar      //
@@ -97,6 +98,7 @@ export const nb = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklager, noe gikk galt med forbindelsen til desKI api-et',
+  [KEY.image_upload_error]: 'Du kan laste opp maksimum 5 bilder.',
 
   // ==================== //
   //      UtilityBar      //
@@ -156,6 +158,7 @@ export const nn = {
   // ==================== //
   [KEY.api_connection_error]:
     'Beklagar, noko gjekk gale med sambandet til desKI API-et',
+  [KEY.image_upload_error]: 'Du kan lasta opp maksimum 5 bilete.',
 
   // ==================== //
   //      UtilityBar      //
@@ -215,6 +218,7 @@ export const ns = {
   // ==================== //
   [KEY.api_connection_error]:
     'Ándagassii, juoga manai funet desKI api oktavuođain',
+  [KEY.image_upload_error]: 'Üles saab laadida maksimaalselt 5 pilti',
 
   // ==================== //
   //      UtilityBar      //

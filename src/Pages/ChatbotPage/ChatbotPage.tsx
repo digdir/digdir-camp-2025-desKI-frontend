@@ -34,7 +34,6 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
-  const [imageError, setImageError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
@@ -53,7 +52,6 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
     setMessages((prev) => [...prev, userMessage]);
     setInputValue('');
     setUploadedImages([]);
-    setImageError(null);
     setLoading(true);
 
     // Sanitize message before sending to backend
@@ -86,21 +84,6 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
     } finally {
       setLoading(false);
     }
-  }
-
-  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    const files = Array.from(e.target.files || []);
-    if (files.length === 0) return;
-
-    const totalImages = uploadedImages.length + files.length;
-    if (totalImages > 5) {
-      setImageError('Du kan kun laste opp maks 5 bilder.');
-      return;
-    }
-
-    const imageUrls = files.map((file) => URL.createObjectURL(file));
-    setUploadedImages((prev) => [...prev, ...imageUrls]);
-    setImageError(null);
   }
 
   function handleRemoveImage(index: number) {
@@ -161,8 +144,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
             <div className={styles.sendAreaWrapper}>
               <ImageUpload
                 uploadedImages={uploadedImages}
-                imageError={imageError}
-                onImageUpload={handleImageUpload}
+                onImagesChange={setUploadedImages}
                 onRemoveImage={handleRemoveImage}
                 fileInputRef={fileInputRef}
                 onImageClick={setFullscreenImage}

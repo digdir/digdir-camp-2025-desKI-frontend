@@ -22,6 +22,10 @@ export const en = {
     'Other',
   ],
 
+  [KEY.helper_text_pre]:
+    'The chatbot can make mistakes. Contact {{source}} at ',
+  [KEY.helper_text_post]: ' if you need further assistance.',
+
   // ==================== //
   //      Chat area       //
   // ==================== //
@@ -77,6 +81,9 @@ export const nb = {
     'Digital lommebok',
     'Annet',
   ],
+
+  [KEY.helper_text_pre]: 'Chatboten kan gjøre feil. Kontakt {{source}} på ',
+  [KEY.helper_text_post]: ' hvis du trenger mer hjelp.',
 
   // ==================== //
   //      Chat area       //
@@ -134,6 +141,9 @@ export const nn = {
     'Anna',
   ],
 
+  [KEY.helper_text_pre]: 'Chatboten kan gjere feil. Kontakt {{source}} på ',
+  [KEY.helper_text_post]: ' hvis du treng meir hjelp.',
+
   // ==================== //
   //      Chat area       //
   // ==================== //
@@ -188,6 +198,10 @@ export const ns = {
     'Digital lommebok',
     'eará',
   ],
+
+  [KEY.helper_text_pre]:
+    'Chatbot sáhttá meaddit. Váldde oktavuođa {{source}} á ',
+  [KEY.helper_text_post]: ' jos dárbbašat eanet veahki.',
 
   // ==================== //
   //      Chat area       //

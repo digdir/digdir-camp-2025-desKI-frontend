@@ -21,6 +21,7 @@ type Message = {
 type ChatbotPageProps = {
   source: 'brukerstotte' | 'servicedesk';
 };
+
 /**
  * The main chatbot interface component.
  * Handles input, dropdown solution selection, chat message rendering, and auto-scrolling.
@@ -172,6 +173,7 @@ export function ChatbotPage({ source }: ChatbotPageProps) {
                 onInputChange={setInputValue}
                 onSend={handleSend}
                 fileInputRef={fileInputRef}
+                source={source}
               />
             </div>
           </div>

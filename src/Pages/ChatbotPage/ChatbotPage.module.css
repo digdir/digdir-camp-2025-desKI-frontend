@@ -39,7 +39,7 @@
   flex: 1;
   padding: 2rem;
   padding-top: 10rem;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
   align-items: center;
   gap: 2rem;
   height: 100%;
@@ -116,15 +116,17 @@
 
 @media (max-width: 768px) {
   .headerContainer {
-    padding: 0 1rem;
-    margin-left: 0;
-    align-items: center;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 0.5rem;
   }
 
   .chatContainer {
-    padding: 1rem 0.5rem;
+    font-size: medium;
   }
-
   .sendButton {
     height: 2rem;
   }
@@ -143,13 +145,10 @@
   }
 
   .logo {
-    width: 250px;
+    width: 200px;
     margin-left: 20px;
   }
 
-  .chatContainer {
-    font-size: medium;
-  }
 }
 
 @media (max-width: 480px) {

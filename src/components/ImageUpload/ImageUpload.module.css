@@ -14,16 +14,6 @@
   object-fit: cover;
   border-radius: 10px;
   border: 17px solid var(--ds-color-neutral-surface-default);
-
-  /* Checkerboard background for transparency */
-  /* background-color: #fff;
-  background-image: linear-gradient(45deg, #ccc 25%, transparent 25%),
-    linear-gradient(-45deg, #ccc 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #ccc 75%),
-    linear-gradient(-45deg, transparent 75%, #ccc 75%);
-  background-size: 15px 15px;
-  background-position: 0 0, 0 7.5px, 7.5px -7.5px, -7.5px 0px; */
-
   background-color: var(--ds-color-neutral-surface-default);
   padding: 5px;
 }

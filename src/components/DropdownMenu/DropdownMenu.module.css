@@ -17,17 +17,7 @@
 .dropdownButton {
   border: none;
   outline: none;
-}
-
-.dropdownButton:hover {
-  border: none;
-  background-color: var(--ds-color-neutral-surface-hover);
-}
-
-.dropdownLink {
-  text-decoration: none;
   color: var(--ds-color-main-text-default);
-  padding: 0;
 }
 
 @media (max-width: 768px) {

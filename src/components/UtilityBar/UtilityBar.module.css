@@ -36,6 +36,10 @@
   margin: 0rem;
 }
 
+.dropdownButton {
+  color: var(--ds-color-main-text-default);
+}
+
 @media (max-width: 550px) {
   .utilityBarConatiner {
     position: fixed;

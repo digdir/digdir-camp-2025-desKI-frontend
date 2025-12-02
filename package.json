@@ -19,7 +19,7 @@
     "@digdir/designsystemet-theme": "^1.0.8",
     "@navikt/aksel-icons": "^7.24.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "i18next": "^25.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
